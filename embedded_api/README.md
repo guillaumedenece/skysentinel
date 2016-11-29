@@ -1,1 +1,1 @@
-# skysentinel
+# embbeded api on ground station
