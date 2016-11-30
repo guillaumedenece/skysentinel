@@ -12,10 +12,10 @@ app.get('/', function (req, res) {
    console.log("get request received");
 })
 
-app.post('/', urlencodedParser, function (req, res) {
-   res.send('Hello World');
+app.post('/', jsonParser, function (req, res) {
+   res.send('Request received');
    console.log("POST");
-   console.log(req.body.first_name);
+   console.log(req.body);
 })
 
 app.post('/GSInfos', jsonParser, GSInfos.inputs.receive);

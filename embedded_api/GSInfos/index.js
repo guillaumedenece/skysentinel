@@ -1,4 +1,5 @@
 var inputs = require('./inputs.js');
+var outputs = require('./outputs.js');
 
 module.exports.inputs = inputs;
-//module.exports.inputGSInfos = GSInputs.inputGSInfos;
+module.exports.outputs = outputs;

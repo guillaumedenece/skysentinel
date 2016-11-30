@@ -1,10 +1,12 @@
 module.exports.receive = receive;
+var indexGS = require('./index.js');
 
 function receive(req, res){
   console.log("GS infos input");
   // console.log(req.body);
   res.send('information received');
-  console.log(req.body.doorPosition);
+  indexGS.outputs.send(req.body)
+  console.log(req.body);
   // console.log(req.body.batteryInfos.ID);
   // console.log(req.body.batteryInfos.voltage.one);
   // console.log(req.body.batteryInfos.voltage.two);
