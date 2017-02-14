@@ -21,7 +21,7 @@ var logLiveCommandSchema = {
 
   commandType : {
     type: String,
-    enum: ['open', 'close', 'stop', 'up', 'down', 'clockwise', 'counterclockwise'],
+    enum: ['open', 'close', 'stop', 'up', 'down', 'clockwise', 'counterclockwise', '0', '1', '2', '3'],
     required: true
   }
 };

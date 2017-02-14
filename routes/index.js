@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var logGroundStation = require('../models/logGroundStation');
-var communicationGroundStation = require('../communicationGroundStation/cloud.js');
+var communicationGroundStation = require('../communicationGroundStation/sender/index.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
