@@ -14,16 +14,14 @@ sender.bind("tcp://*:5557", function(error){
 	}
 });
 
+
 function sendToGS(jsonObj){
 	sender.send(jsonObj);
 }
 
 receiver.on("message", function(message){
-
 	obj = JSON.parse(message);
-
 	console.log("data recu : " + obj.data);
-
 });
 
 receiver.connect('tcp://192.168.1.12:5556');
