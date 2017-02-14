@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var logGroundStation = require('../../models/logGroundStation');
+var logGroundStation = require('../../../models/logGroundStation');
 
 
 //sends the last update of the log collection "logGroundStation"
@@ -56,5 +56,6 @@ router.get('/weather', function(req, res, next){
 
 });
 
+// route.get('/')
 
 module.exports = router;

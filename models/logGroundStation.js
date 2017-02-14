@@ -2,11 +2,11 @@ var mongoose = require('./dbConnect');
 var mongoose = require('mongoose');
 
 var logGroundStationSchema = {
-  _id: { type: String},
-  idGroundStation: {
-    type: String,
-    required: true
-  },
+  // _id: { type: String},
+  // idGroundStation: {
+  //   type: String,
+  //   required: true
+  // },
   date: {
     type: Date,
     required: true

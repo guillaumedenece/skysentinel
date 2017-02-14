@@ -1,10 +1,8 @@
 #!/usr/bin/nodejs
 
-
-
-var zmq      = require('zmq')
-  , sender   = zmq.socket('push')
-  , receiver = zmq.socket('pull');
+var zmq      = require('zeromq');
+var sender   = zmq.socket('push');
+var receiver = zmq.socket('pull');
 
 sender.bind("tcp://*:5557", function(error){
 	if(error){
@@ -16,11 +14,9 @@ sender.bind("tcp://*:5557", function(error){
 	}
 });
 
-
 function sendToGS(jsonObj){
 	sender.send(jsonObj);
 }
-
 
 receiver.on("message", function(message){
 
@@ -30,8 +26,11 @@ receiver.on("message", function(message){
 
 });
 
-receiver.connect('tcp://localhost:5556');
+receiver.connect('tcp://192.168.1.12:5556');
 console.log("Connecting to server with port 5556");
+
+
+module.exports.sendToGS = sendToGS;
 
 /*
 data = {"data" : "dataFromCloud"}

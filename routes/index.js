@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var logGroundStation = require('../models/logGroundStation');
+var communicationGroundStation = require('../communicationGroundStation/cloud.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,6 +15,14 @@ router.get('/', function(req, res, next) {
     console.log(results);
     res.send(results);
     })
+});
+
+router.get('/sendtogs', function(req, res, next){
+  var jsonObj = new Object();
+  jsonObj.flight = true;
+  var jsonString = JSON.stringify(jsonObj);
+  communicationGroundStation.sendToGS(jsonString);
+  res.send("sent");
 });
 
 router.get('/insert', function(req, res) {
@@ -54,6 +63,5 @@ router.get('/insert', function(req, res) {
     }
   })
 });
-
 
 module.exports = router;
