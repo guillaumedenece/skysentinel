@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('skysentinel8:server');
 var http = require('http');
-// var io = require ('../socket/io.js');
+var io = require ('../socket/io.js');
 
 /**
  * Get port from environment and store in Express.
@@ -21,20 +21,20 @@ app.set('port', port);
 */
 
 var server = http.createServer(app);
-// io.attach(server);
-var io = require('socket.io').listen(server);
-// module.exports.io = io;
+io.attach(server);
+// var io = require('socket.io').listen(server);
 
 // Quand un client se connecte, on le note dans la console
-io.sockets.on('connection', function (socket) {
-    console.log('Un client est connecté !');
-    socket.emit('message', 'Vous êtes bien connecté !');});
+// io.sockets.on('connection', function (socket) {
+//     console.log('Un client est connecté !');
+//     socket.emit('message', 'Vous êtes bien connecté !');
+// });
 
 
-// setInterval(function(){
-//   io.emit('message', 'message'); console.log("message sent");
-//   },10000
-// )
+setInterval(function(){
+  io.emit('message', 'message'); console.log("message sent");
+  },10000
+)
 
 
 /**
