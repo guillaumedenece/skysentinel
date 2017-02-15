@@ -1,6 +1,7 @@
 var zmq      = require('zeromq');
 var receiver = zmq.socket('pull');
 var logGroundStation = require('../../models/logGroundStation');
+// var io = require('../../socket/io.js');
 
 receiver.on("message", function(message){
 
@@ -52,6 +53,9 @@ receiver.on("message", function(message){
 		  })
 		}
 	}
+
+	// io.emit('message', 'yo');
+ // 	console.log("message sent to user\n");
 
 });
 

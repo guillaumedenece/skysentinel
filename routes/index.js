@@ -5,7 +5,7 @@ var communicationGroundStation = require('../communicationGroundStation/sender/i
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('index',{title: "SALUT"});
 });
 
 router.get('/sendtogs', function(req, res, next){
