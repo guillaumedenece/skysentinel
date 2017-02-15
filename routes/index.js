@@ -5,16 +5,7 @@ var communicationGroundStation = require('../communicationGroundStation/sender/i
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // res.render('index', { title: 'Express' });
-  logGroundStation.find().sort({date: -1}).limit(1).exec(null, function(err, results){
-    if(err)
-    {
-      throw err;
-    }
-
-    console.log(results);
-    res.send(results);
-    })
+  res.render('index');
 });
 
 router.get('/sendtogs', function(req, res, next){
