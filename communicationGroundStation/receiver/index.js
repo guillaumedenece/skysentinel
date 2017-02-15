@@ -5,6 +5,7 @@ var logGroundStation = require('../../models/logGroundStation');
 receiver.on("message", function(message){
 
 	obj = JSON.parse(message);
+	console.log("\npaquet reçu\n" + JSON.stringify(obj) + "\n");
 
 	//if the subject is the groundStation
 	if(obj.subject == "groundStation")
@@ -51,6 +52,7 @@ receiver.on("message", function(message){
 		  })
 		}
 	}
+
 });
 
 receiver.connect('tcp://192.168.1.12:5556');
