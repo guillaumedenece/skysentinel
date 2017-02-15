@@ -29,7 +29,6 @@ router.get('/insert', function(req, res) {
   // res.render('index', { title: 'Express' });
 
   var log = new logGroundStation();
-  log._id="lolygoouerererguih";
   log.idGroundStation = "1";
   log.date = "2012-05-18T16:00:00Z";
   log.doorState = "open";
