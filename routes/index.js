@@ -1,7 +1,11 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
 var logGroundStation = require('../models/logGroundStation');
 var communicationGroundStation = require('../communicationGroundStation/sender/index.js');
+var groundStation = require('./groundStation');
+
+app.use('/groundStation', groundStation);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -54,4 +58,4 @@ router.get('/insert', function(req, res) {
   })
 });
 
-module.exports = router;
+module.exports = app;

@@ -1,7 +1,7 @@
 var zmq      = require('zeromq');
 var receiver = zmq.socket('pull');
 var logGroundStation = require('../../models/logGroundStation');
-// var io = require('../../socket/io.js');
+ var io = require('../../socket/io.js');
 
 receiver.on("message", function(message){
 
@@ -51,13 +51,18 @@ receiver.on("message", function(message){
 		      console.log("log groundStation saved in the database");
 		    }
 		  })
+
+			// io.emit('message', 'information about the database received');
+			// console.log("message sent to user\n");
+
 		}
 	}
 
-	// io.emit('message', 'yo');
- // 	console.log("message sent to user\n");
+  io.emit('message', 'information about the database received');
+  console.log("message sent to user\n");
+
 
 });
 
-receiver.connect('tcp://192.168.1.6:5556');
+receiver.connect('tcp://127.0.0.1:5556');
 console.log("Connecting to server with port 5556");

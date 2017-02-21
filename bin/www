@@ -22,19 +22,13 @@ app.set('port', port);
 
 var server = http.createServer(app);
 io.attach(server);
-// var io = require('socket.io').listen(server);
-
-// Quand un client se connecte, on le note dans la console
-// io.sockets.on('connection', function (socket) {
-//     console.log('Un client est connecté !');
-//     socket.emit('message', 'Vous êtes bien connecté !');
-// });
 
 
-setInterval(function(){
-  io.emit('message', 'message'); console.log("message sent");
-  },10000
-)
+//send a message to the client every 10 seconds
+// setInterval(function(){
+//   io.emit('message', 'message'); console.log("message sent");
+//   },10000
+// )
 
 
 /**
