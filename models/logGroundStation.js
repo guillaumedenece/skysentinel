@@ -5,10 +5,10 @@ var logGroundStationSchema = {
 
   idGroundStation: {
     type: String,
-    required: true
+    required: false
   },
 
-  date: {
+  time: {
     type: Date,
     required: true
   },
@@ -16,6 +16,11 @@ var logGroundStationSchema = {
     type: String,
     enum: ['open', 'close', 'opening', 'closing', 'stopped'],
     required: true
+  },
+  elevatorState:{
+    type: String,
+    enum: ['up', 'down', 'movingUp', 'movingDown'],
+    required: true,
   },
   batteriesInfos:[{
     batterySlot: {type: Number, min: 0, max: 3, required: true},

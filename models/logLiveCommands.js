@@ -8,7 +8,7 @@ var logLiveCommandSchema = {
     type: String
   },
 
-  date : {
+  time : {
     type: Date,
     default: Date.now
   },
@@ -21,7 +21,7 @@ var logLiveCommandSchema = {
 
   commandType : {
     type: String,
-    enum: ['open', 'close', 'stop', 'up', 'down', 'clockwise', 'counterclockwise', '0', '1', '2', '3'],
+    enum: ['open', 'close', 'stop', 'up', 'down', 'clockwise', 'counterclockwise', '0', '1', '2', '3', 'rth', 'land'],
     required: true
   }
 };

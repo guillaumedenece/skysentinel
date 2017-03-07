@@ -16,7 +16,8 @@ receiver.on("message", function(message){
 		{
 			var log = new logGroundStation();
 			log.idGroundStation = obj.idGroundStation;
-		  log.date = obj.date;
+		  log.time = obj.time;
+      log.elevatorState = obj.elevatorState;
 		  log.doorState = obj.doorState;
 		  log.batteriesInfos = new Array();
 		  log.batteriesInfos[0] = new Object();

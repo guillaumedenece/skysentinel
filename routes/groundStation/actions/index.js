@@ -11,6 +11,7 @@ router.get('/door/:action', function(req, res, next) {
 
   var log = new logLiveCommands();
 
+  log.time = Date.now();
   log.commandTarget = "door";
   log.commandType = action;
 

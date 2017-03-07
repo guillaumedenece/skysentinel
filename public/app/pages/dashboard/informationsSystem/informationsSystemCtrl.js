@@ -8,14 +8,19 @@
   /** @ngInject */
   function informationsSystemCtrl($http, $scope, dashboardInformationsSystemService){
 
-    // $scope.log.door = new Object();
-    $scope.test = "test en dur"
-    console.log($scope.test);
-
     dashboardInformationsSystemService.getLogGroundStation()
       .success(function(informations){
-        $scope.log = informations[0].doorState;
-        console.log($scope.log);
+        $scope.doorState = informations[0].doorState;
+        if($scope.doorState == "open")
+        {
+          $scope.doorImage = 'openBox'
+        }
+        else if($scope.doorState == "close")
+        {
+          $scope.doorImage = 'closeBox'
+        }
+        console.log($scope.doorState);
+        console.log($scope.doorImage);
       })
       .error(function(error){
         console.log("Impossible de récupérer log de la ground Station" + error);
