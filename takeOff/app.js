@@ -9,7 +9,6 @@ var async = require('async');
 var request = require('request')
 var ObjectID = require('mongodb').ObjectId;
 var sleep = require('sleep');
-//var parseString = require('xml2js').parseString;
 
 
 
@@ -404,8 +403,8 @@ function algoPrevWeather(data1,data2)
 {	
 	var keys = Object.keys(data1);
 
-	var actualDate = Date.parse(new Date(2017, 3-1, 10, 10+1, 30));
-	//var actualDate = Date.now();	
+	//var actualDate = Date.parse(new Date(2017, 3-1, 10, 10+1, 30));
+	var actualDate = Date.now();	
 	for(var i=5;i<10;i++)
 	{
 		if(actualDate > Date.parse(keys[i]) && actualDate < Date.parse(keys[i+1]))
