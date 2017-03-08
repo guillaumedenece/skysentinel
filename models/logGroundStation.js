@@ -5,13 +5,14 @@ var logGroundStationSchema = {
 
   idGroundStation: {
     type: String,
-    required: true
+    required: false
   },
 
-  date: {
+  time: {
     type: Date,
     required: true
   },
+
   doorState: {
     type: String,
     enum: ['open', 'close', 'opening', 'closing', 'stopped'],
@@ -22,6 +23,13 @@ var logGroundStationSchema = {
     batteryVoltage: {type: Number, required: true},
     batteryPresence: {type: Boolean, required: true}
   }],
+  
+  elevatorState:{
+	type: String,
+	enum: ['up','down','movingUp', 'movingDown'],
+        required: true
+  },
+
   weatherInfos:{
     rain: {type: Boolean, required: true},
     wind: {type: Number, required: true},

@@ -3,8 +3,13 @@ var mongoose = require('mongoose');
 
 var logDroneSchema = {
 
- droneId: {
+ idDrone: {
     type: Number,
+    required: false
+  },
+
+  idMission: {
+    type: String,
     required: true
   },
 
@@ -14,8 +19,9 @@ var logDroneSchema = {
   },
 
   position: {
-    type : String,
-    required: true
+    latitude: {type: Number, required : true},
+    longitude: {type: Number, required : true},
+    altitude: {type: Number, required : true} 
   },
 
   batteryLevel: {
@@ -26,7 +32,7 @@ var logDroneSchema = {
   landed: {
     type: Boolean,
     required: true
-  },
+  }
   
 };
 

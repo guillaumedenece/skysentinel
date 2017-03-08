@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 var missionPlannedSchema = {
 
-  missionPlan: {
+  missionData: {
     type: String,
     required: true
   },

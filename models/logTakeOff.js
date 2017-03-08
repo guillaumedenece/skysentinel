@@ -9,22 +9,30 @@ var logTakeOffSchema = {
     required: true
   },
 
-  tookOff: {
-    type : Boolean,
+ idMission: {
+    type: String,
     required: true
-  },
+ },
+
 
   weatherCond: {
-    type : String,
-    required: true
+    rain: {type: Boolean, required: true},
+    wind: {type: Boolean, required: true},
+    humidity: {type: Boolean, required: true},
+    temperature: {type: Boolean, required: true}
   },
 
-  landed: {
+  launched: {
     type : Boolean,
     required: true
   },
 
-  missionPlan: {
+  available: {
+    type : Boolean,
+    required: true
+  },
+
+  missionData: {
     type: String,
     required: true
   },
@@ -46,6 +54,9 @@ var logTakeOffSchema = {
     required : false
   }
 };
+
+
+
 
 // module.exports = new mongoose.Schema(logTakeOffSchema);
 module.exports = mongoose.model('logTakeOff', logTakeOffSchema);
