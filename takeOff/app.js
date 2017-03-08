@@ -8,6 +8,7 @@ var http = require('http');
 var async = require('async');
 var request = require('request')
 var ObjectID = require('mongodb').ObjectId;
+var sleep = require('sleep');
 //var parseString = require('xml2js').parseString;
 
 
@@ -41,21 +42,15 @@ var test = async.map(urls, function(url, callback) {
 	
 });
 
-function takeOffDecision(weatherPrevInfo)
-{
-	console.log("Objet                  =>       "+weatherPrevInfo.rain);
-	console.log((true+ true) == 2);
-	console.log(false == true);
-}
 
 
-/*
 function takeOffDecision(weatherPrevInfo)
 {
 
 logDrone.find().sort({time: -1}).limit(1).exec(null, function(err, lg){
 	if(err){throw err;}
 	var landed = lg[0].landed;
+	var idMission = lg[0].idMission;
 	
 	if(idMission != "none") 
 	{
@@ -83,9 +78,10 @@ logDrone.find().sort({time: -1}).limit(1).exec(null, function(err, lg){
 			for(var i=to.length-1; i>=0;i--){ 
 				if((!(to[i].weatherCond.rain) || !(to[i].weatherCond.wind) || !(to[i].weatherCond.humidity) || !(to[i].weatherCond.temperature)) || !(to[i].launched) || !(to[i].available))
 				{
+					console.log("logTakeOff reseach");
 					logGroundStation.find().sort({time: -1}).limit(1).exec(null, function(err, GSLog){
 							if(err){throw err;}
-							var idMission = to[i].idMission;
+							var idMission = to[i]._id;
 							var missionData = to[i].missionData;
 							var weatherCond = algoWeather(idMission, missionData, GSLog, weatherPrevInfo);
 							var frequency = to[i].frequency; 
@@ -93,7 +89,7 @@ logDrone.find().sort({time: -1}).limit(1).exec(null, function(err, lg){
 							var GSConcerned = to[i].GSConcerned;
 							var missionDescription = to[i].missionDescription;
 							var missionOk = false;
-
+							console.log(available);
 							if(weatherCond.rain && weatherCond.wind && weatherCond.humidity && weatherCond.temperature && available)
 							{
 								//{idMission: idMission, missionData : missionData, timeLimit : 5 }
@@ -108,25 +104,36 @@ logDrone.find().sort({time: -1}).limit(1).exec(null, function(err, lg){
 								var jsonString = JSON.stringify(mission);
 								communicationGroundStation.sendToGS(jsonString);
 								missionOk = true;
+								console.log("Old mission sent");
 							}
 
 							if(missionOk)
 							{
-								//time.sleep(5*60*1000);
-								time.sleep(5000);
+								console.log("mission tentative ...");
+								//time.sleep(5*60);
+								sleep.sleep(1*60);
 							
 								logDrone.find().sort({time: -1}).where("idMission").equals(idMission).limit(1).exec(null, function(err, backLog){
 									if(err){throw err;}
-									if(!backLog[0].landed)
+									if(backLog[0] == undefined)
+									{
+										var launched = false;
+										var available = false;
+										console.log("Not mission !");
+									}
+									else if(!backLog[0].landed)
 									{
 										var launched = true;
 										var available = false;
+										console.log("mission correctly launched");
 									}
 									else
 									{
 										var launched = false;
 										var available = true;
+										console.log("Drone not launched by mistake");
 									}
+									
 
 									var addTO = new logTakeOff();
 
@@ -152,6 +159,7 @@ logDrone.find().sort({time: -1}).limit(1).exec(null, function(err, lg){
 								});
 							}
 							else{
+								console.log("mission not sent !");
 								var addTO = new logTakeOff();
 
 								addTO.idMission = idMission;
@@ -189,56 +197,96 @@ logDrone.find().sort({time: -1}).limit(1).exec(null, function(err, lg){
 					if(err){throw err;}
 					if(Date.parse(mp[0].validityDate) >= Date.parse(new Date())) // si l'heure de mission de la plus vieille est supérieure a la date actuelle
 					{
-						var idMissionPlanned = mp[0]._id;						
-						var idMission = mp[0].idMission;
-						var missionData = mp[0].missionData;
-						var weatherCond = algoWeather(idMission, missionData, GSLog, weatherPrevInfo);
-						var frequency = mp[0].frequency; //condition1
-						var validityDate = mp[0].validityDate;
-						var GSConcerned = mp[0].GSConcerned;
-						var missionDescription = mp[0].missionDescription;
-						var missionOk =false;
+						logGroundStation.find().sort({time: -1}).limit(1).exec(null, function(err, GSLog){
+							if(err){throw err;}
+							console.log("Mission Planned reseach");						
+							var idMissionPlanned = mp[0]._id;
+							var objectId = 	new ObjectID();					
+							var idMission = objectId.toHexString();
+							var missionData = mp[0].missionData;
+							var weatherCond = algoWeather(idMission, missionData, GSLog, weatherPrevInfo);
+							var frequency = mp[0].frequency; //condition1
+							var validityDate = mp[0].validityDate;
+							var GSConcerned = mp[0].GSConcerned;
+							var missionDescription = mp[0].missionDescription;
+							var missionOk =false;
 
-						if(weatherCond.rain && weatherCond.wind && weatherCond.humidity && weatherCond.temperature && available)
-						{
-							//{idMission: idMission, missionData : missionData, timeLimit : 5 }
-							//send json to GS
-							var mission = new Object();
+							if(weatherCond.rain && weatherCond.wind && weatherCond.humidity && weatherCond.temperature && available)
+							{
+								//{idMission: idMission, missionData : missionData, timeLimit : 5 }
+								//send json to GS
+								var mission = new Object();
 
-							mission.idMission = idMission;
-							mission.missionData = missionData;
-							mission.timeLimit = 5;
+								mission.idMission = idMission;
+								mission.missionData = missionData;
+								mission.timeLimit = 5;
 
-							// send action to the GS
-							var jsonString = JSON.stringify(mission);
-							communicationGroundStation.sendToGS(jsonString);
-							missionOk = true;
-						}
+								// send action to the GS
+								var jsonString = JSON.stringify(mission);
+								communicationGroundStation.sendToGS(jsonString);
+								missionOk = true;
+								console.log("New mission sent");
+							}
 
-						if(missionOk)
-						{
-							//time.sleep(5*60*1000);
-							time.sleep(5000);
+							if(missionOk)
+							{
+								console.log("mission tentative ...");
+								//time.sleep(5*60);
+								sleep.sleep(5);
 						
-							logDrone.find().sort({time: -1}).where("idMission").equals(idMission).limit(1).exec(null, function(err, backLog){
-								if(err){throw err;}
-								if(!backLog[0].landed)
-								{
-									var launched = true;
-									var available = false;
-								}
-								else
-								{
-									var launched = false;
-									var available = true;
-								}
+								logDrone.find().sort({time: -1}).where("idMission").equals(idMission).limit(1).exec(null, function(err, backLog){
+									if(err){throw err;}
+									if(backLog[0] == undefined)
+									{
+										var launched = false;
+										var available = false;
+										console.log("No mission !");
+									}
+									else if(!backLog[0].landed)
+									{
+										var launched = true;
+										var available = false;
+										console.log("mission correctly launched");
+									}
+									else
+									{
+										var launched = false;
+										var available = true;
+										console.log("Drone not launched by mistake");
+									}
+									
 
+									var addTO = new logTakeOff();
+
+									addTO.idMission = idMission;
+									addTO.time = new Date();
+									addTO.weatherCond = weatherCond;
+									addTO.launched = launched;
+									addTO.available = available;
+									addTO.missionData = missionData;
+									addTO.frequency = frequency;
+									addTO.validityDate = validityDate;
+									addTO.GSConcerned = GSConcerned;
+									addTO.missionDescription = missionDescription;
+
+
+									addTO.save(function(err){
+									    if(err){
+									      console.log(err);
+									    }
+							    
+							  		});
+							
+								});
+							}
+							else{
+								console.log("mission not launched !");
 								var addTO = new logTakeOff();
 
 								addTO.idMission = idMission;
 								addTO.time = new Date();
 								addTO.weatherCond = weatherCond;
-								addTO.launched = launched;
+								addTO.launched = false;
 								addTO.available = available;
 								addTO.missionData = missionData;
 								addTO.frequency = frequency;
@@ -253,68 +301,39 @@ logDrone.find().sort({time: -1}).limit(1).exec(null, function(err, lg){
 								    }
 						    
 						  		});
-							
-							});
-						}
-						else{
-							var addTO = new logTakeOff();
 
-							addTO.idMission = idMission;
-							addTO.time = new Date();
-							addTO.weatherCond = weatherCond;
-							addTO.launched = false;
-							addTO.available = available;
-							addTO.missionData = missionData;
-							addTO.frequency = frequency;
-							addTO.validityDate = validityDate;
-							addTO.GSConcerned = GSConcerned;
-							addTO.missionDescription = missionDescription;
+							}	
+						
+							if(frequency==0)
+							{
+								missionPlanned.remove().where('_id').equals(idMissionPlanned).exec(null, function(err){
+									if(err){throw err;}
+									console.log("remove in Mission Table(no frequency)");
+								});
+							}
+							else
+							{
+								missionPlanned.update({_id: idMissionPlanned},{validityDate : new Date(Date.parse(validityDate)+frequency*60*60*1000)},function(err){
+									if(err){throw err;}
+									console.log("update in Mission Table(frequency)");
+								});
 
+							}						
 
-							addTO.save(function(err){
-							    if(err){
-							      console.log(err);
-							    }
-					    
-					  		});
-
-						}	
-						//});
-						if(frequency==0)
-						{
-							missionPlanned.remove().where('_id').equals(idMissionPlanned).exec(null, function(err){
-								if(err){throw err;}
-								console.log("remove in Mission Table(no frequency)");
-							});
-						}
-						else
-						{
-							missionPlanned.update({_id: idMissionPlanned},{validityDate : new Date(Date.parse(validityDate)+frequency*60*60*1000)},function(err){
-								if(err){throw err;}
-								console.log("update in Mission Table(frequency)");
-							});
-
-						}						
-
-
+						});
 					}
 				});
 			}						
 		});
 	}
 });
-else
-{
-
-
 }
-*/
 
 function algoWeather(idMission, missionData, GSLog, weatherPrevInfo)
 {	
 	var weatherdata = GSLog[0].weatherInfos;
 
-	var weatherCond = new object();
+	var weatherCond = new Object();
 	weatherCond.rain = true;
 	weatherCond.wind = true;
 	weatherCond.humidity = true;
