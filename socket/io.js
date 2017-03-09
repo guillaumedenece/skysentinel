@@ -1,7 +1,7 @@
 var io = require('socket.io')();
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('message', 'Vous êtes bien connecté !');
+  socket.emit('connect', 'You\'re connected!');
   console.log("client connected");
 });
 

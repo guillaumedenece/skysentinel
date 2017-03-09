@@ -6,11 +6,15 @@ var logGroundStation = require('../../models/logGroundStation');
 receiver.on("message", function(message){
 
 	obj = JSON.parse(message);
-	console.log("\npaquet reçu\n" + JSON.stringify(obj) + "\n");
+	// console.log("\npaquet reçu\n" + JSON.stringify(obj) + "\n");
+
+  console.log(obj.subject);
 
 	//if the subject is the groundStation
 	if(obj.subject == "groundStation")
 	{
+    console.log("log groundStation received");
+
 		//avoid crash if an element is missing
 		if(obj.batteriesInfos && obj.batteriesInfos[1] && obj.batteriesInfos[2] && obj.batteriesInfos[3] && obj.weatherInfos)
 		{
@@ -53,14 +57,13 @@ receiver.on("message", function(message){
 		    }
 		  })
 
-			// io.emit('message', 'information about the database received');
-			// console.log("message sent to user\n");
-
+      //sends the information in real time to the client
+      io.emit('logGroundStation', obj);
+      console.log("message sent to user\n");
 		}
 	}
 
-  io.emit('message', 'information about the database received');
-  console.log("message sent to user\n");
+
 
 
 });

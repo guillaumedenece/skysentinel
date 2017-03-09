@@ -76,6 +76,9 @@
   <div></div>
 </div>
 
+<!-- inject socket.io (real time communication with server) -->
+<script src="/socket.io/socket.io.js"></script>
+
 <!-- build:js(src) scripts/vendor.js -->
 <!-- bower:js -->
 <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -221,8 +224,9 @@
 <script src="app/pages/dashboard/trafficChart/TrafficChartCtrl.js"></script>
 <script src="app/pages/dashboard/weather/weather.directive.js"></script>
 <script src="app/pages/dashboard/weather/WeatherCtrl.js"></script> -->
-<script src="app/pages/dashboard/informationsSystem/informationsSystemCtrl.js"></script>
 <script src="app/pages/dashboard/informationsSystem/infomationsSystem.service.js"></script>
+<script src="app/pages/dashboard/informationsSystem/informationsSystem.factory.js"></script>
+<script src="app/pages/dashboard/informationsSystem/informationsSystemCtrl.js"></script>
 <script src="app/pages/dashboard/informationsSystem/informationsSystem.directive.js"></script>
 <!-- <script src="app/pages/form/wizard/wizrdCtrl.js"></script>
 <script src="app/pages/maps/google-maps/GmapPageCtrl.js"></script>
