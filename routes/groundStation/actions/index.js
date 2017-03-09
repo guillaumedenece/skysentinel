@@ -9,24 +9,28 @@ router.get('/door/:action', function(req, res, next) {
 
   var action = req.params.action;
 
+  //creating the command to send to the GS
+  var command = new Object();
+  command.commandType = action;
+  command.commandTarget = "door";
+  //limit time after executing the command: 15 secs
+  command.timeLimit = Date.now() + 15000;
+
+  //creating the log
   var log = new logLiveCommands();
-
   log.time = Date.now();
-  log.commandTarget = "door";
-  log.commandType = action;
-
-  // send action to the GS
-  var jsonString = JSON.stringify(log);
-  communicationGroundStation.sendToGS(jsonString);
-
-  res.send("sent");
+  log.commandTarget = command.commandTarget;
+  log.commandType = command.commandType;
 
   log.save(function(err){
     if(err){
       console.log(err); //res.send("error")
     }
     else {
-      //res.send("Command saved");
+      // send action to the GS
+      var jsonString = JSON.stringify(command);
+      communicationGroundStation.sendToGS(jsonString);
+      res.send("sent");
     }
   })
 });
@@ -34,28 +38,95 @@ router.get('/door/:action', function(req, res, next) {
 //controls wheel
 router.get('/wheel/:action', function(req, res, next) {
 
-  var action = req.params.action;
+    var action = req.params.action;
 
-  var log = new logLiveCommands();
+    //creating the command to send to the GS
+    var command = new Object();
+    command.commandType = action;
+    command.commandTarget = "wheel";
+    //limit time after executing the command: 15 secs
+    command.timeLimit = new Date(Date.now() + 15000);//Date.now() + 15000;
+    console.log(command.timeLimit);
 
-  log.commandTarget = "wheel";
-  log.commandType = action;
+    //creating the log
+    var log = new logLiveCommands();
+    log.time = Date.now();
+    log.commandTarget = command.commandTarget;
+    log.commandType = command.commandType;
 
-  // send action to the GS
-  var jsonString = JSON.stringify(log);
-  communicationGroundStation.sendToGS(jsonString);
-  res.send("sent");
-
-  //saves in the database
-  log.save(function(err){
-    if(err){
-      console.log(err); //res.send("error")
-    }
-    else {
-      //res.send("Command saved");
-    }
-  })
+    log.save(function(err){
+      if(err){
+        console.log(err); //res.send("error")
+      }
+      else {
+        // send action to the GS
+        var jsonString = JSON.stringify(command);
+        communicationGroundStation.sendToGS(jsonString);
+        res.send("sent");
+      }
+    })
 });
 
+//controls system
+router.get('/system/:action', function(req, res, next) {
+
+    var action = req.params.action;
+
+    //creating the command to send to the GS
+    var command = new Object();
+    command.commandType = action;
+    command.commandTarget = "system";
+    //limit time after executing the command: 15 secs
+    command.timeLimit = Date.now() + 15000;
+
+    //creating the log
+    var log = new logLiveCommands();
+    log.time = Date.now();
+    log.commandTarget = command.commandTarget;
+    log.commandType = command.commandType;
+
+    log.save(function(err){
+      if(err){
+        console.log(err); //res.send("error")
+      }
+      else {
+        // send action to the GS
+        var jsonString = JSON.stringify(command);
+        communicationGroundStation.sendToGS(jsonString);
+        res.send("sent");
+      }
+    })
+});
+
+//controls elevator
+router.get('/elevator/:action', function(req, res, next) {
+
+    var action = req.params.action;
+
+    //creating the command to send to the GS
+    var command = new Object();
+    command.commandType = action;
+    command.commandTarget = "elevator";
+    //limit time after executing the command: 15 secs
+    command.timeLimit = Date.now() + 15000;
+
+    //creating the log
+    var log = new logLiveCommands();
+    log.time = Date.now();
+    log.commandTarget = command.commandTarget;
+    log.commandType = command.commandType;
+
+    log.save(function(err){
+      if(err){
+        console.log(err); //res.send("error")
+      }
+      else {
+        // send action to the GS
+        var jsonString = JSON.stringify(command);
+        communicationGroundStation.sendToGS(jsonString);
+        res.send("sent");
+      }
+    })
+});
 
 module.exports = router;

@@ -11,14 +11,9 @@
     dashboardInformationsSystemService.getLogGroundStation()
       .success(function(informations){
         $scope.doorState = informations[0].doorState;
-        if($scope.doorState == "open")
-        {
-          $scope.doorImage = 'openBox'
-        }
-        else if($scope.doorState == "close")
-        {
-          $scope.doorImage = 'closeBox'
-        }
+
+        imageManager();
+
         console.log($scope.doorState);
         console.log($scope.doorImage);
       })
@@ -28,19 +23,29 @@
 
       dashboardInformationsSystemFactorySocket.on('logGroundStation',function(log){
         $scope.doorState = log.doorState;
-        if($scope.doorState == "open")
-        {
-          $scope.doorImage = 'openBox'
-        }
-        else if($scope.doorState == "close")
-        {
-          $scope.doorImage = 'closeBox'
-        }
+
+        imageManager();
+
       })
 
       dashboardInformationsSystemFactorySocket.on('connect',function(message){
         console.log("connected to the server via socket.io");
       });
+
+      function imageManager(){
+        switch($scope.doorState){
+          case "open":
+            $scope.doorImage = 'openBox'
+            break;
+
+          case "close":
+            $scope.doorImage = 'closeBox'
+            break;
+
+          default:
+            $scope.doorImage = ''
+        }
+      }
 
   }
 } )();

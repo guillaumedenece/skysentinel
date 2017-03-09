@@ -15,13 +15,13 @@ var logLiveCommandSchema = {
 
   commandTarget : {
     type: String,
-    enum: ['door', 'drone', 'elevator', 'wheel'],
+    enum: ['door', 'drone', 'elevator', 'wheel', 'system'],
     required: true
   },
 
   commandType : {
     type: String,
-    enum: ['open', 'close', 'stop', 'up', 'down', 'clockwise', 'counterclockwise', '0', '1', '2', '3', 'rth', 'land'],
+    enum: ['open', 'close', 'stop', 'up', 'down', 'clockwise', 'counterclockwise', '0', '1', '2', '3', 'rth', 'land', 'shutdown'],
     required: true
   }
 };
