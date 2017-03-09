@@ -15,7 +15,7 @@
         .error(function(error){
           console.log(error)
         })
-        
+        return $timeout(function() {}, 1000);
     }
   }
 } )();
