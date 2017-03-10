@@ -4,13 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var receiverGroundStation = require('./communicationGroundStation/receiver');
 
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var groundStationInformations = require('./routes/groundStation/informations');
-var groundStationActions = require('./routes/groundStation/actions');
 
 var app = express();
 
