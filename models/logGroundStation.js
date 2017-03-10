@@ -14,7 +14,7 @@ var logGroundStationSchema = {
   },
   doorState: {
     type: String,
-    enum: ['open', 'close', 'opening', 'closing', 'stopped'],
+    enum: ['open', 'close', 'opening', 'closing', 'stop'],
     required: true
   },
   elevatorState:{
