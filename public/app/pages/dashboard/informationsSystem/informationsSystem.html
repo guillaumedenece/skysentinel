@@ -3,7 +3,7 @@
 <p>{{ ::test }}</p>
 <p>{{test}}</p> -->
 
-
+<div ba-panel ba-panel-title="Box State">
 <div class="row pie-charts">
   <div class="pie-chart-item-container">
     <div ba-panel>
@@ -16,9 +16,7 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="row pie-charts">
   <div class="pie-chart-item-container">
     <div ba-panel>
       <div class="pie-chart-item">
@@ -26,12 +24,14 @@
           <div>Elevator State</div>
           <div class="description-stats">{{elevatorState}}</div>
         </div>
-        <!-- <i class="chart-icon i-{{doorImage}}"></i> -->
+        <i class="chart-icon i-elevator"></i>
       </div>
     </div>
   </div>
 </div>
+</div>
 
+<div ba-panel ba-panel-title="Batteries Informations">
 <div class="row pie-charts">
   <div class="pie-chart-item-container" ng-repeat="batteryInfo in batteriesInfos">
     <div ba-panel>
@@ -40,10 +40,11 @@
           <div>Battery slot {{batteryInfo.batterySlot}}</div>
           <div class="description-stats">Voltage: {{batteryInfo.batteryVoltage}}</div>
         </div>
-        <!-- <i class="chart-icon i-{{ ::chart.icon }}"></i> -->
+        <i class="chart-icon i-batteryFull"></i>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <div ba-panel ba-panel-title="Weather Infos">
@@ -59,9 +60,7 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="row pie-charts">
   <div class="pie-chart-item-container">
     <div ba-panel>
       <div class="pie-chart-item">
@@ -87,9 +86,7 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="row pie-charts">
   <div class="pie-chart-item-container">
     <div ba-panel>
       <div class="pie-chart-item">
@@ -117,9 +114,7 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="row pie-charts">
   <div class="pie-chart-item-container">
     <div ba-panel>
       <div class="pie-chart-item">

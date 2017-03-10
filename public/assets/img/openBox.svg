@@ -10,10 +10,12 @@
    version="1.1"
    x="0px"
    y="0px"
-   viewBox="0 0 88 72"
+   viewBox="0 0 48 48"
    id="svg3386"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="openBox.svg">
+   sodipodi:docname="openBox.svg"
+   width="48"
+   height="48">
   <metadata
      id="metadata3396">
     <rdf:RDF>
@@ -42,15 +44,15 @@
      id="namedview3392"
      showgrid="false"
      inkscape:zoom="4.856"
-     inkscape:cx="14.37397"
-     inkscape:cy="62.5"
+     inkscape:cx="40.630148"
+     inkscape:cy="37.788303"
      inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg3386" />
   <g
      id="g3398"
-     transform="translate(-5.9719934,-13.797364)">
+     transform="matrix(0.54529087,0,0,0.54529087,-3.2745869,-2.9047855)">
     <g
        id="g3388"
        transform="translate(0,-952.36218)">

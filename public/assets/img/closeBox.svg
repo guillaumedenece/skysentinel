@@ -8,12 +8,14 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
-   viewBox="0 0 42 42"
+   viewBox="0 0 48 48"
    x="0px"
    y="0px"
    id="svg3392"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="closeBox.svg">
+   sodipodi:docname="closeBox.svg"
+   width="48"
+   height="48">
   <metadata
      id="metadata3408">
     <rdf:RDF>
@@ -22,6 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -36,20 +39,20 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1855"
-     inkscape:window-height="1056"
+     inkscape:window-width="1215"
+     inkscape:window-height="776"
      id="namedview3404"
      showgrid="false"
-     inkscape:zoom="11.4875"
-     inkscape:cx="32"
-     inkscape:cy="49.373124"
-     inkscape:window-x="1345"
+     inkscape:zoom="5.74375"
+     inkscape:cx="19.120777"
+     inkscape:cy="17.543818"
+     inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg3392" />
   <g
      id="g3394"
-     transform="translate(-10.968444,-10.968444)">
+     transform="matrix(1.1428578,0,0,1.1428578,-12.571436,-12.57145)">
     <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 32,52 52,42 52,22 32,12 12,22 12,42 Z"
