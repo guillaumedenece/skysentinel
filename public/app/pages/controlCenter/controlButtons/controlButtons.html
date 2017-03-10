@@ -1,13 +1,19 @@
-<div class="col-lg-6 col-md-12 col-sm-12"
-ba-panel
-ba-panel-title="Door Control"
-ba-panel-class="medium-panel traffic-panel">
+<div class="col-md-12 progress-buttons-container text-center default-text"
+ ba-panel
+ ba-panel-title="Door Control"
+ ba-panel-class="medium-panel traffic-panel with-scroll">
 
-  <button progress-button=executeGroundStationAction("door","open") class="btn btn-success">Open Door</button>
+    <section class="col-md-6 col-lg-3">
+      <button progress-button=executeGroundStationAction("door","open") class="btn btn-success">Open Door</button>
+    </section>
 
-  <button progress-button=executeGroundStationAction("door","close") class="btn btn-success">Close Door</button>
+    <section class="col-md-6 col-lg-3">
+      <button progress-button=executeGroundStationAction("door","close") class="btn btn-success">Close Door</button>
+    </section>
 
-  <button progress-button=executeGroundStationAction("door","stop") class="btn btn-success">Stop Door</button>
+    <section class="col-md-6 col-lg-3">
+      <button progress-button=executeGroundStationAction("door","stop") class="btn btn-success">Stop Door</button>
+    </section>
 
 </div>
 
