@@ -54,10 +54,11 @@
           $scope.batteriesInfos[i].batterySlot = informations[0].batteriesInfos[i].batterySlot
           $scope.batteriesInfos[i].batteryVoltage = informations[0].batteriesInfos[i].batteryVoltage
           $scope.batteriesInfos[i].batteryPresence = informations[0].batteriesInfos[i].batteryPresence
+          console.log(JSON.stringify($scope.batteriesInfos[i]))
         }
-        $scope.boxInfos.humidity = informations[0].boxInfos.humidity
-        $scope.boxInfos.temperature = informations[0].boxInfos.temperature
-        $scope.boxInfos.pressure = informations[0].boxInfos.pressure
+        // $scope.boxInfos.humidity = informations[0].boxInfos.humidity
+        // $scope.boxInfos.temperature = informations[0].boxInfos.temperature
+        // $scope.boxInfos.pressure = informations[0].boxInfos.pressure
 
         imageManager();
 
