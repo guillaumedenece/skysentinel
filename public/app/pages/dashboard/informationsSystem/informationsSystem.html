@@ -17,3 +17,133 @@
     </div>
   </div>
 </div>
+
+<div class="row pie-charts">
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Elevator State</div>
+          <div class="description-stats">{{elevatorState}}</div>
+        </div>
+        <!-- <i class="chart-icon i-{{doorImage}}"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pie-charts">
+  <div class="pie-chart-item-container" ng-repeat="batteryInfo in batteriesInfos">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Battery slot {{batteryInfo.batterySlot}}</div>
+          <div class="description-stats">Voltage: {{batteryInfo.batteryVoltage}}</div>
+        </div>
+        <!-- <i class="chart-icon i-{{ ::chart.icon }}"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ba-panel ba-panel-title="Weather Infos">
+<div class="row pie-charts">
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Rain</div>
+          <div class="description-stats">{{weatherInfos.rain}}</div>
+        </div>
+        <!-- <i class="chart-icon i-{{ ::chart.icon }}"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pie-charts">
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Wind</div>
+          <div class="description-stats">{{weatherInfos.wind}}</div>
+        </div>
+        <!-- <i class="chart-icon i-{{ ::chart.icon }}"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pie-charts">
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Humidity</div>
+          <div class="description-stats">{{weatherInfos.humidity}}</div>
+        </div>
+        <!-- <i class="chart-icon i-{{ ::chart.icon }}"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pie-charts">
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Temperature</div>
+          <div class="description-stats">{{weatherInfos.temperature}}</div>
+        </div>
+        <!-- <i class="chart-icon i-{{ ::chart.icon }}"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div ba-panel ba-panel-title="Box Infos">
+<div class="row pie-charts">
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Humidity</div>
+          <div class="description-stats">{{boxInfos.humidity}}</div>
+        </div>
+        <!-- <i class="chart-icon i-{{ ::chart.icon }}"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pie-charts">
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Temperature</div>
+          <div class="description-stats">{{boxInfos.temperature}}</div>
+        </div>
+        <!-- <i class="chart-icon i-{{ ::chart.icon }}"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pie-charts">
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Pressure</div>
+          <div class="description-stats">{{boxInfos.pressure}}</div>
+        </div>
+        <!-- <i class="chart-icon i-{{ ::chart.icon }}"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>

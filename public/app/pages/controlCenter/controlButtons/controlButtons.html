@@ -1,62 +1,77 @@
 <div class = "widget">
-<div class="col-md-12 progress-buttons-container text-center default-text"
+<div class="col-lg-6 col-md-12 col-sm-12 progress-buttons-container text-center default-text"
  ba-panel
- ba-panel-title="Door Control"
- ba-panel-class="medium-panel traffic-panel with-scroll">
+ ba-panel-title="Door Control">
 
-    <section class="col-md-6 col-lg-3">
-      <button progress-button=executeGroundStationAction("door","open") class="btn btn-success">Open Door</button>
+    <section class="col-md-6 col-lg-6">
+      <span class="button-title">Open Door</span>
+      <button progress-button=executeGroundStationAction("door","open") class="btn btn-success">Submit</button>
     </section>
 
-    <section class="col-md-6 col-lg-3">
-      <button progress-button=executeGroundStationAction("door","close") class="btn btn-success">Close Door</button>
+    <section class="col-md-6 col-lg-6">
+      <span class="button-title">Close Door</span>
+      <button progress-button=executeGroundStationAction("door","close") class="btn btn-success">Submit</button>
     </section>
 
-    <section class="col-md-6 col-lg-3">
-      <button progress-button=executeGroundStationAction("door","stop") class="btn btn-success">Stop Door</button>
+    <section class="col-md-6 col-lg-6">
+      <span class="button-title">Stop Door</span>
+      <button progress-button=executeGroundStationAction("door","stop") class="btn btn-success">Submit</button>
     </section>
 
 </div>
 
-<div class="col-lg-6 col-md-12 col-sm-12"
-ba-panel
-ba-panel-title="Wheel Control"
-ba-panel-class="medium-panel traffic-panel">
+<div class="col-lg-6 col-md-12 col-sm-12 progress-buttons-container text-center default-text"
+ ba-panel
+ ba-panel-title="Wheel Control">
 
-  <button progress-button=executeGroundStationAction("wheel","0") class="btn btn-success">Position 0</button>
+  <section class="col-md-6 col-lg-6" style="margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+    <button progress-button=executeGroundStationAction("wheel","0") class="btn btn-success">Position 0</button>
+  </section>
 
-  <button progress-button=executeGroundStationAction("wheel","1") class="btn btn-success">Position 1</button>
+  <section class="col-md-6 col-lg-6" style="margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+    <button progress-button=executeGroundStationAction("wheel","1") class="btn btn-success">Position 1</button>
+  </section>
 
-  <button progress-button=executeGroundStationAction("wheel","2") class="btn btn-success">Position 2</button>
+  <section class="col-md-6 col-lg-6" style="margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+    <button progress-button=executeGroundStationAction("wheel","2") class="btn btn-success">Position 2</button>
+  </section>
 
-  <button progress-button=executeGroundStationAction("wheel","3") class="btn btn-success">Position 3</button>
-
-</div>
-
-<div class="col-lg-6 col-md-12 col-sm-12"
-ba-panel
-ba-panel-title="Elevator Control"
-ba-panel-class="medium-panel traffic-panel">
-
-  <button progress-button=executeGroundStationAction("elevator","up") class="btn btn-success">Move up</button>
-
-  <button progress-button=executeGroundStationAction("elevator","down") class="btn btn-success">Move down</button>
-
-  <button progress-button=executeGroundStationAction("elevator","stop") class="btn btn-success">Stop</button>
+  <section class="col-md-6 col-lg-6" style="margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+    <button progress-button=executeGroundStationAction("wheel","3") class="btn btn-success">Position 3</button>
+  </section>
 
 </div>
 
+<div class="col-lg-6 col-md-12 col-sm-12 progress-buttons-container text-center default-text"
+ ba-panel
+ ba-panel-title="Elevator Control">
 
-<div class="col-lg-6 col-md-12 col-sm-12"
-ba-panel
-ba-panel-title="Drone Control"
-ba-panel-class="medium-panel traffic-panel">
+  <section class="col-md-6 col-lg-6" style="margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+    <button progress-button=executeGroundStationAction("elevator","up") class="btn btn-success">Move up</button>
+  </section>
+  <section class="col-md-6 col-lg-6" style="margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+    <button progress-button=executeGroundStationAction("elevator","down") class="btn btn-success">Move down</button>
+  </section>
+  <section class="col-md-6 col-lg-6" style="margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+    <button progress-button=executeGroundStationAction("elevator","stop") class="btn btn-success">Stop</button>
+  </section>
 
-  <button progress-button=executeDroneAction("control","land") class="btn btn-success">Return to Land</button>
+</div>
 
-  <button progress-button=executeDroneAction("control","rth") class="btn btn-success">Return to Ground Station</button>
 
-  <button progress-button=executeDroneAction("mission","0") class="btn btn-success">Launch Mission</button>
+<div class="col-lg-6 col-md-12 col-sm-12 progress-buttons-container text-center default-text"
+ ba-panel
+ ba-panel-title="Drone Control">
+
+  <section class="col-md-6 col-lg-6" style="margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+    <button progress-button=executeDroneAction("control","land") class="btn btn-success">Return to Land</button>
+  </section>
+  <section class="col-md-6 col-lg-6" style="margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+    <button progress-button=executeDroneAction("control","rth") class="btn btn-success">Return to Ground Station</button>
+  </section>
+  <section class="col-md-6 col-lg-6" style="margin-bottom: 10px; margin-top: 10px; margin-right: 10px; margin-left: 10px;">
+    <button progress-button=executeDroneAction("mission","0") class="btn btn-success">Launch Mission</button>
+  </section>
 
 </div>
 </div>

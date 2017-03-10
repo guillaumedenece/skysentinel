@@ -11,6 +11,24 @@
     dashboardInformationsSystemService.getLogGroundStation()
       .success(function(informations){
         $scope.doorState = informations[0].doorState;
+        $scope.elevatorState = informations[0].elevatorState;
+        $scope.weatherInfos =new Object();
+        $scope.weatherInfos.rain = informations[0].weatherInfos.rain
+        $scope.weatherInfos.wind = informations[0].weatherInfos.wind
+        $scope.weatherInfos.humidity = informations[0].weatherInfos.humidity
+        $scope.weatherInfos.temperature = informations[0].weatherInfos.temperature
+        $scope.batteriesInfos = new Array()
+        for(var i=0; i<4; i++)
+        {
+          $scope.batteriesInfos[i] = new Object()
+          $scope.batteriesInfos[i].batterySlot = informations[0].batteriesInfos[i].batterySlot
+          $scope.batteriesInfos[i].batteryVoltage = informations[0].batteriesInfos[i].batteryVoltage
+          $scope.batteriesInfos[i].batteryPresence = informations[0].batteriesInfos[i].batteryPresence
+        }
+
+        $scope.boxInfos.humidity = informations[0].boxInfos.humidity
+        $scope.boxInfos.temperature = informations[0].boxInfos.temperature
+        $scope.boxInfos.pressure = informations[0].boxInfos.pressure
 
         imageManager();
 
@@ -22,7 +40,24 @@
       })
 
       dashboardInformationsSystemFactorySocket.on('logGroundStation',function(log){
-        $scope.doorState = log.doorState;
+        $scope.doorState = informations[0].doorState;
+        $scope.elevatorState = informations[0].elevatorState;
+        $scope.weatherInfos =new Object();
+        $scope.weatherInfos.rain = informations[0].weatherInfos.rain
+        $scope.weatherInfos.wind = informations[0].weatherInfos.wind
+        $scope.weatherInfos.humidity = informations[0].weatherInfos.humidity
+        $scope.weatherInfos.temperature = informations[0].weatherInfos.temperature
+        $scope.batteriesInfos = new Array()
+        for(var i=0; i<4; i++)
+        {
+          $scope.batteriesInfos[i] = new Object()
+          $scope.batteriesInfos[i].batterySlot = informations[0].batteriesInfos[i].batterySlot
+          $scope.batteriesInfos[i].batteryVoltage = informations[0].batteriesInfos[i].batteryVoltage
+          $scope.batteriesInfos[i].batteryPresence = informations[0].batteriesInfos[i].batteryPresence
+        }
+        $scope.boxInfos.humidity = informations[0].boxInfos.humidity
+        $scope.boxInfos.temperature = informations[0].boxInfos.temperature
+        $scope.boxInfos.pressure = informations[0].boxInfos.pressure
 
         imageManager();
 
@@ -46,6 +81,5 @@
             $scope.doorImage = ''
         }
       }
-
   }
 } )();

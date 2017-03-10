@@ -44,6 +44,9 @@ receiver.on("message", function(message){
 		  log.weatherInfos.wind = obj.weatherInfos.wind;
 		  log.weatherInfos.humidity = obj.weatherInfos.humidity;
 		  log.weatherInfos.temperature = obj.weatherInfos.temperature;
+      log.boxInfos.humidity = obj.boxInfos.humidity;
+      log.boxInfos.temperature = obj.boxInfos.temperature;
+      log.boxInfos.pressure = obj.boxInfos.pressure;
 
 			console.log("data received:" + log);
 

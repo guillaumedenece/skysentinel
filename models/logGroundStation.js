@@ -19,7 +19,7 @@ var logGroundStationSchema = {
   },
   elevatorState:{
     type: String,
-    enum: ['up', 'down', 'movingUp', 'movingDown'],
+    enum: ['up', 'down', 'movingUp', 'movingDown', 'stop'],
     required: true,
   },
   batteriesInfos:[{
@@ -32,6 +32,11 @@ var logGroundStationSchema = {
     wind: {type: Number, required: true},
     humidity: {type: Number, required: true},
     temperature: {type: Number, required: true}
+  },
+  boxInfos:{
+    humidity: {type: Number, required: true},
+    temperature: {type: Number, required: true},
+    pressure:{type: Number, required:true}
   }
 };
 
