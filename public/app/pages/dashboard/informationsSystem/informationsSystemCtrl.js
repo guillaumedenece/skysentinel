@@ -26,6 +26,7 @@
           $scope.batteriesInfos[i].batteryPresence = informations[0].batteriesInfos[i].batteryPresence
         }
 
+        $scope.boxInfos = new Object()
         $scope.boxInfos.humidity = informations[0].boxInfos.humidity
         $scope.boxInfos.temperature = informations[0].boxInfos.temperature
         $scope.boxInfos.pressure = informations[0].boxInfos.pressure
@@ -56,6 +57,8 @@
           $scope.batteriesInfos[i].batteryPresence = log.batteriesInfos[i].batteryPresence
           console.log(JSON.stringify($scope.batteriesInfos[i]))
         }
+
+        $scope.boxInfos = new Object()
         $scope.boxInfos.humidity = log.boxInfos.humidity
         $scope.boxInfos.temperature = log.boxInfos.temperature
         $scope.boxInfos.pressure = log.boxInfos.pressure

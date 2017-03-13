@@ -6,7 +6,7 @@ var logGroundStation = require('../../../models/logGroundStation');
 //sends the last update of the log collection "logGroundStation"
 router.get('/', function(req, res, next) {
 
-  logGroundStation.find().sort({time: -1}).limit(1).exec(null, function(err, results){
+  logGroundStation.find().limit(1).sort({time: -1}).exec(null, function(err, results){
     if(err)
     {
       throw err;
