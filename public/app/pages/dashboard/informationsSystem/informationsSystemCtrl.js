@@ -81,6 +81,10 @@
             $scope.doorImage = 'closeBox'
             break;
 
+          case "opening":
+            $scope.doorImage = 'openingBox'
+            break;
+
           default:
             $scope.doorImage = ''
         }
