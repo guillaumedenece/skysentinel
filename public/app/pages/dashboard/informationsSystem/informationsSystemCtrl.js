@@ -23,7 +23,6 @@
           $scope.batteriesInfos[i] = new Object()
           $scope.batteriesInfos[i].batterySlot = informations[0].batteriesInfos[i].batterySlot
           $scope.batteriesInfos[i].batteryVoltage = informations[0].batteriesInfos[i].batteryVoltage
-          $scope.batteriesInfos[i].batteryPresence = informations[0].batteriesInfos[i].batteryPresence
         }
 
         $scope.boxInfos = new Object()
@@ -54,7 +53,6 @@
           $scope.batteriesInfos[i] = new Object()
           $scope.batteriesInfos[i].batterySlot = log.batteriesInfos[i].batterySlot
           $scope.batteriesInfos[i].batteryVoltage = log.batteriesInfos[i].batteryVoltage
-          $scope.batteriesInfos[i].batteryPresence = log.batteriesInfos[i].batteryPresence
           console.log(JSON.stringify($scope.batteriesInfos[i]))
         }
 
@@ -87,6 +85,27 @@
 
           default:
             $scope.doorImage = ''
+        }
+
+        for(var i = 0; i < 4; i++){
+          if($scope.batteriesInfos[i].batteryVoltage < 0){
+            $scope.batteriesInfos[i].batteryImage = "noBattery"
+          }
+          else if($scope.batteriesInfos[i].batteryVoltage < (9.9 + 0.54 * 1)){
+            $scope.batteriesInfos[i].batteryImage = "batteryLow"
+          }
+          else if($scope.batteriesInfos[i].batteryVoltage < (9.9 + 0.54 * 2)){
+            $scope.batteriesInfos[i].batteryImage = "batteryMedium"
+          }
+          else if($scope.batteriesInfos[i].batteryVoltage < (9.9 + 0.54 * 3)){
+            $scope.batteriesInfos[i].batteryImage = "batteryAverage"
+          }
+          else if($scope.batteriesInfos[i].batteryVoltage < (9.9 + 0.54 * 4)){
+            $scope.batteriesInfos[i].batteryImage = "batteryHigh"
+          }
+          else {
+            $scope.batteriesInfos[i].batteryImage = "batteryFull"
+          }
         }
       }
   }

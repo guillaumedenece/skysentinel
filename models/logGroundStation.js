@@ -24,8 +24,7 @@ var logGroundStationSchema = {
   },
   batteriesInfos:[{
     batterySlot: {type: Number, min: 0, max: 3, required: true},
-    batteryVoltage: {type: Number, required: true},
-    batteryPresence: {type: Boolean, required: true}
+    batteryVoltage: {type: Number, required: true}
   }],
   weatherInfos:{
     rain: {type: Boolean, required: true},
