@@ -1,0 +1,22 @@
+#map {
+    height: 500px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#containerMAP{
+    margin-bottom: 20px;
+}
+
+#ligne{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#titre{
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

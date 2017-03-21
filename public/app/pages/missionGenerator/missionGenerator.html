@@ -1,0 +1,154 @@
+<div class="container">
+    <div id="titre" class="page-header">
+        <h1>Mission generator</h1>
+        <h5>Veuillez entrer les caractéristiques de la serre.</h5>
+        <h5>Google Earth permet d'obtenir toutes ces données.</h5>
+    </div>
+
+    <div id="containerMAP">
+        <div id="map"></div>
+    </div>
+
+
+    <form method="post" action="http://127.0.0.1:3000/missions/missionGenerator" class="form-horizontal">
+
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label for="inputLat" >Latitude</label>
+                <div class="">
+                    <input type="number" step="any" class="form-control" id="inputLat" name="inputLat" value="47.230110">
+                </div>
+            </div>
+            <div class="form-group col-sm-4">
+                <label for="inputLong" >Longitude</label>
+                <div class="">
+                    <input type="number" step="any" class="form-control" id="inputLong" name="inputLong" value="-1.464834">
+                </div>
+            </div>
+            <div class="form-group col-sm-4">
+                <label for="inputAltHome" >Altitude maison (m)</label>
+                <div class="">
+                    <input type="number" step="any" class="form-control" id="inputAltHome" name="inputAltHome" value="0">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label for="inputLarg">Largeur (m)</label>
+                <input type="number" step="any" class="form-control" id="inputLarg" name="inputLarg" value="72">
+            </div>
+            <div class="form-group col-sm-4">
+                <label for="inputHaut">Longueur (m)</label>
+                <input type="number" step="any" class="form-control" id="inputHaut" name="inputHaut" value="88">
+            </div>
+            <div class="form-group col-sm-4">
+                <label for="inputAngle">Angle (°)</label>
+                <input type="number" step="any" class="form-control" id="inputAngle" name="inputAngle" value="-0.65135688">
+            </div>
+        </div>
+
+
+        <div class="thumbnail col-sm-3 col-sm-offset-4" >
+            <a href="ressources/schema.png">
+                <img src="app/pages/missionGenerator/schema.png" alt="Explication mesures">
+            </a>
+
+            <div class="caption">
+                <h5>Explication mesures</h3>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputFake" class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="inputEsp">Espacement entre rangs (m)</label>
+                <input type="number" step="any" class="form-control" id="inputEsp" name="inputEsp" value="14">
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="inputAltMiss">Altitude mission (m)</label>
+                <input type="number" step="any" class="form-control" id="inputAltMiss" name="inputAltMiss" value="2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="inputDist">Distance entre 2 mesures (m)</label>
+                <input type="number" step="any" class="form-control" id="inputDist" name="inputDist" value="2">
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="inputDelta">Pause pour chaque mesures (s)</label>
+                <input type="number" step="any" class="form-control" id="inputDelta" name="delta" value="0">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="startDate">Start Date:</label>
+                <input type="date" step="any" class="form-control" id="startDate" name="startDate" value={{today}}>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="frequency">Mission Frequency (hours)</label>
+                <input type="number" step="any" class="form-control" id="frequency" name="frequency" value="24">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <label for="missionDescription">Description of the mission: (optional)</label>
+                <input type="text" placeholder="description of the mission" step="any" class="form-control" id="missionDescription" name="missionDescription">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <div class="checkbox col-sm-offset-4">
+                    <label>
+                        <input type="checkbox" id="inputAR" name="inputAR" cheked> Aller / Retour pour chaque passe
+                    </label>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="thumbnail">
+                            <a href="ressources/AR.png">
+                                <img src="app/pages/missionGenerator/AR.png" alt="Explication aller retour">
+                            </a>
+
+                            <div class="caption">
+                                <h5>Aller / Retour</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="thumbnail">
+                            <a href="app/pages/missionGenerator/AS.png">
+                                <img src="app/pages/missionGenerator/AR.png" alt="Explication aller simple">
+                            </a>
+
+                            <div class="caption">
+                                <h5>Aller simple</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-3">
+                <button type="submit" class="btn btn-success">Générer les fichiers</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6FAaShRa6CFi_R--vX0poBchRskka0es&libraries=drawing,geometry&callback=initMap">
+</script>
