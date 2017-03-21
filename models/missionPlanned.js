@@ -18,7 +18,7 @@ var missionPlannedSchema = {
   },
   GSConcerned:{
     type: Number,
-    required: true
+    required: false
   },
   missionDescription:{
     type: String,
