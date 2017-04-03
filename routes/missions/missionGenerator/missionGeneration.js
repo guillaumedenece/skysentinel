@@ -1,6 +1,6 @@
 
 /*
-//DEBUG
+DEBUG
 var lat=47.230110; //-35.3632621765 //43.785273
 var longi=-1.464834; //149.165237427 //4.957509
 var largeur=72;//71.33
@@ -13,8 +13,9 @@ var mission_alt=2.0; //590.0//2.00
 var inputAR = false; //aller retour
 var delta = 0;
 
+
 var res = missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m, home_alt, mission_alt, delta, inputAR);
-console.log(res);*/
+console.log(res["missionMap"]); */
 
 function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m, home_alt, mission_alt, delta, inputAR)
 {
@@ -44,6 +45,7 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 	//////////////////////////////////////////////////// GESTION de fichier ///////////////////////////////////////////////////
 
 	var missionData = "";
+	var missionMap = "";
 
 	/*
 	//Entete de fichier KML
@@ -94,7 +96,7 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 	//Parcours et sauvegarde des points de la mission
 
 	for(var i=0; i<nb_rang+1; i++){
-		/*
+
 		//points couloirs
 		for(var j=0; j<nb_pt_rang; j++){
 			if(i%2 ==0 || AR==1){//si rang pair
@@ -155,7 +157,7 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 				}
 				n++;
 			}
-		}*/
+		}
 
 
 
@@ -210,7 +212,7 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 
 
 	//Offset de la position et conversion en Long/Lat
-	/*
+
 	for (var n=0; n<nb_pt_total; n++){
 		x=tmp[n][1];
 		y=tmp[n][0];
@@ -225,11 +227,11 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 		tmp[n][1]=newlon;
 
 		//Impression à l'ecran et dans le fichier
-		fprintf(mapsAPI,"\nnew google.maps.LatLng(%f,%f),",tmp[n][0],tmp[n][1]);
+		missionMap += "\nnew google.maps.LatLng("+tmp[n][0]+","+tmp[n][1]+"),";
 
-		fprintf(kml, "<Placemark><name></name><styleUrl>#icon</styleUrl><ExtendedData>\n<Data name=\"Temperature\"><value>%f</value>\n</Data>\n<Data name=\"Humidité\"><value>%f</value></Data></ExtendedData>\n<Point><altitudeMode>relativeToGround</altitudeMode><coordinates>%f,%f,%f</coordinates></Point></Placemark>", temperature, humidite, tmp[n][1],tmp[n][0], mission_alt );
+		//fprintf(kml, "<Placemark><name></name><styleUrl>#icon</styleUrl><ExtendedData>\n<Data name=\"Temperature\"><value>%f</value>\n</Data>\n<Data name=\"Humidité\"><value>%f</value></Data></ExtendedData>\n<Point><altitudeMode>relativeToGround</altitudeMode><coordinates>%f,%f,%f</coordinates></Point></Placemark>", temperature, humidite, tmp[n][1],tmp[n][0], mission_alt );
 
-	}*/
+	}
 
 	//Conversion Lat/Long des WPs
 	//Offset de la position
@@ -312,11 +314,11 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 
 	//GOOOOOODDD
 
-	return missionData;
+	returnMission = {missionData : missionData, missionMap: missionMap};
+
+	return returnMission;
 
 
 	/*echo '<meta http-equiv="refresh" content="0;URL=historic.php">';*/
 
 }
-
-module.exports.missionStock = missionStock;

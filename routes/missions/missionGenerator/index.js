@@ -5,8 +5,13 @@ var missionPlanned = require('../../../models/missionPlanned.js');
 
 router.post('/', function(req, res, next) {
 
+  var missionGenerated;
+
+  missionGenerated = missionGeneration.missionStock(req.body.inputLat, req.body.inputLong, req.body.inputHaut, req.body.inputLarg, req.body.inputAngle, req.body.inputEsp, req.body.inputDist, req.body.inputAltHome, req.body.inputAltMiss, req.body.delta, req.body.inputAR);
+
   var mission = new missionPlanned();
-  mission.missionData = missionGeneration.missionStock(req.body.inputLat, req.body.inputLong, req.body.inputHaut, req.body.inputLarg, req.body.inputAngle, req.body.inputEsp, req.body.inputDist, req.body.inputAltHome, req.body.inputAltMiss, req.body.delta, req.body.inputAR);
+  mission.missionData = missionGenerated["missionData"];
+  mission.missionWayPoints = missionGenerated["missionMap"];
   mission.frequency = req.body.frequency;
   mission.validityDate = req.body.startDate;
   if(req.body.missionDescription){
