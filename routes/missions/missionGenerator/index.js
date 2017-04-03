@@ -21,7 +21,7 @@ router.post('/', function(req, res, next) {
       console.log("mission enregistrée");
     }
   })
-  res.send("data for flight received\n\n");
+  res.redirect('/');
 });
 
 module.exports = router;
