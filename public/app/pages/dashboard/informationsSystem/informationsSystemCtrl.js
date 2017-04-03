@@ -28,7 +28,7 @@
         $scope.boxInfos = new Object()
         $scope.boxInfos.humidity = informations[0].boxInfos.humidity
         $scope.boxInfos.temperature = informations[0].boxInfos.temperature
-        $scope.boxInfos.pressure = informations[0].boxInfos.pressure
+        $scope.boxInfos.pressure = (informations[0].boxInfos.pressure)/100
 
         imageManager();
 
@@ -59,7 +59,7 @@
         $scope.boxInfos = new Object()
         $scope.boxInfos.humidity = log.boxInfos.humidity
         $scope.boxInfos.temperature = log.boxInfos.temperature
-        $scope.boxInfos.pressure = log.boxInfos.pressure
+        $scope.boxInfos.pressure = (log.boxInfos.pressure)/100
 
         imageManager();
 

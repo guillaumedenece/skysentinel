@@ -10,6 +10,7 @@
     'BlurAdmin.pages.controlCenter',
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.missionGenerator',
+    'BlurAdmin.pages.missionManager'
     // 'BlurAdmin.pages.ui',
     // 'BlurAdmin.pages.components',
     // 'BlurAdmin.pages.form',
