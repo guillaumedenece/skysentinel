@@ -15,7 +15,7 @@ var delta = 0;
 
 
 var res = missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m, home_alt, mission_alt, delta, inputAR);
-console.log(res["missionMap"]); */
+console.log(res["ap"]); */
 
 function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m, home_alt, mission_alt, delta, inputAR)
 {
@@ -45,7 +45,7 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 	//////////////////////////////////////////////////// GESTION de fichier ///////////////////////////////////////////////////
 
 	var missionData = "";
-	var missionMap = "";
+	var missionMap = new Array();
 
 	/*
 	//Entete de fichier KML
@@ -227,7 +227,9 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 		tmp[n][1]=newlon;
 
 		//Impression à l'ecran et dans le fichier
-		missionMap += "\nnew google.maps.LatLng("+tmp[n][0]+","+tmp[n][1]+"),";
+		missionMap[n] = new Object();
+		missionMap.lat = tmp[n][0];
+		missionMap.lng = tmp[n][1];
 
 		//fprintf(kml, "<Placemark><name></name><styleUrl>#icon</styleUrl><ExtendedData>\n<Data name=\"Temperature\"><value>%f</value>\n</Data>\n<Data name=\"Humidité\"><value>%f</value></Data></ExtendedData>\n<Point><altitudeMode>relativeToGround</altitudeMode><coordinates>%f,%f,%f</coordinates></Point></Placemark>", temperature, humidite, tmp[n][1],tmp[n][0], mission_alt );
 
@@ -314,7 +316,11 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 
 	//GOOOOOODDD
 
-	returnMission = {missionData : missionData, missionMap: missionMap};
+	var missionMapJson = JSON.stringify(missionMap);
+
+	console.log(missionMapJson);
+
+	var returnMission = {missionData : missionData, missionMap: missionMapJson};
 
 	return returnMission;
 

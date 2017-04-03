@@ -4,4 +4,11 @@
 </mission-manager> -->
 
 
-<mission-manager-map ng-init="init('bonsoir')"></mission-manager-map>
+<!-- <mission-manager-map ng-init="init('bonsoir')"></mission-manager-map> -->
+
+<div ng-controller="missionManagerCtrl">
+  <div ng-repeat = "mission in missionsPlanned">
+    <mission-manager-map ng-init="init(mission)"></mission-manager-map>
+    <!-- <p>{{missionsPlanned[0].missionDescription}}</p> -->
+  </div>
+</div>
