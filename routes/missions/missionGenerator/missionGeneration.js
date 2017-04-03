@@ -322,3 +322,6 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 	/*echo '<meta http-equiv="refresh" content="0;URL=historic.php">';*/
 
 }
+
+
+module.exports.missionStock = missionStock;
