@@ -7,7 +7,7 @@ var missionPlannedSchema = {
     type: String,
     required: true
   },
-  missionWayPoints: {
+  missionMapPoints: {
     type: Array,
     required: true
   },

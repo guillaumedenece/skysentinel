@@ -9,25 +9,29 @@
 
     $scope.init = function(mission) {
 
-      console.log(mission);
+      $timeout(function(mission){
+        console.log(mission);
 
-      var marker = new Array();
+        var marker = new Array();
 
-      var mapCanvas = document.getElementById('google-maps')//-' + mission._id);
-      var mapOptions = {
-        center: new google.maps.LatLng(mission.missionWayPoints[0].lat, mission.missionWayPoints[0].lng),
-        zoom: 8,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(mapCanvas, mapOptions);
+        console.log('google-maps-' + mission._id);
 
-      for(var i= 0; i < mission.missionWayPoints.length; i++){
-       marker = new google.maps.Marker({
-          position : new google.maps.LatLng(mission.missionWayPoints[i].lat, mission.missionWayPoints[i].lng),
-          map: map
-        })
-        console.log(i + " lat: " + mission.missionWayPoints[i].lat + " long :" +  mission.missionWayPoints[i].lng);
-      }
+        var mapCanvas = document.getElementById('google-maps-' + mission._id);
+        var mapOptions = {
+          center: new google.maps.LatLng(mission.missionMapPoints[0].lat, mission.missionMapPoints[0].lng),
+          zoom: 11,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+
+        for(var i= 0; i < mission.missionMapPoints.length; i++){
+         marker = new google.maps.Marker({
+            position : new google.maps.LatLng(mission.missionMapPoints[i].lat, mission.missionMapPoints[i].lng),
+            map: map
+          })
+          console.log(i + " lat: " + mission.missionMapPoints[i].lat + " long :" +  mission.missionMapPoints[i].lng);
+        }
+      },100);
 
       // var marker = new google.maps.Marker({
       //   position : new google.maps.LatLng(44.5403, -78.5463),
