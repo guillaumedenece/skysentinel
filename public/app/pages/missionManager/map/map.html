@@ -1,3 +1,8 @@
-<div ba-panel ba-panel-title="Google Maps" class="viewport100">
-  <div id="google-maps"></div>
+<div id="google-maps">
+
+<div ng-repeat = "mission in missionsPlanned">
+  <div id="google-maps-{{mission._id}}">
+    <div ba-panel ba-panel-title="Mission" class="viewport100"></div>
+  </div>
+  <div ng-init="init(mission)"></div>
 </div>

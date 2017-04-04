@@ -6,10 +6,10 @@
 
   /** @ngInject */
   function missionManagerService($http) {
-
-    this.getMissionsPlanned=function(){
-          console.log("requete missionsPlanned");
-          return $http.get('/missions/missionManager/getMissionsPlanned');
-      }
+    // 
+    // this.getMissionsPlanned=function(){
+    //       console.log("requete missionsPlanned");
+    //       return $http.get('/missions/missionManager/getMissionsPlanned');
+    //   }
     }
 })();

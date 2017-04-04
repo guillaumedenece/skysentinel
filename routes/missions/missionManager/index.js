@@ -8,7 +8,6 @@ router.get('/getMissionsPlanned', function(req, res, next){
     {
       throw err;
     }
-    console.log(results);
     res.send(results);
     })
 });

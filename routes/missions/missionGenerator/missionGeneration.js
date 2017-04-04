@@ -228,8 +228,12 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 
 		//Impression à l'ecran et dans le fichier
 		missionMap[n] = new Object();
-		missionMap.lat = tmp[n][0];
-		missionMap.lng = tmp[n][1];
+		missionMap[n].lat = tmp[n][0];
+		missionMap[n].lng = tmp[n][1];
+		var test="";
+		test+=n + " lat: " + tmp[n][0] + " long: " + tmp[n][1]
+		console.log(test)
+		//console.log(n + " lat: " + tmp[n][0] + " long: " + tmp[n][1]);
 
 		//fprintf(kml, "<Placemark><name></name><styleUrl>#icon</styleUrl><ExtendedData>\n<Data name=\"Temperature\"><value>%f</value>\n</Data>\n<Data name=\"Humidité\"><value>%f</value></Data></ExtendedData>\n<Point><altitudeMode>relativeToGround</altitudeMode><coordinates>%f,%f,%f</coordinates></Point></Placemark>", temperature, humidite, tmp[n][1],tmp[n][0], mission_alt );
 
@@ -316,11 +320,11 @@ function missionStock(lat, longi, hauteur, largeur, angle_ini, espacement, pt_m,
 
 	//GOOOOOODDD
 
-	var missionMapJson = JSON.stringify(missionMap);
+	console.log("POINT 1");
+	console.log(missionMap[1].lat);
+	console.log(missionMap[1].lng);
 
-	console.log(missionMapJson);
-
-	var returnMission = {missionData : missionData, missionMap: missionMapJson};
+	var returnMission = {missionData : missionData, missionMap: missionMap};
 
 	return returnMission;
 

@@ -8,7 +8,7 @@ var missionPlannedSchema = {
     required: true
   },
   missionWayPoints: {
-    type: String,
+    type: Array,
     required: true
   },
   //Fréquence de mission en heure
