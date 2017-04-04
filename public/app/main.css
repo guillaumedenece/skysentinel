@@ -3480,7 +3480,7 @@ th {
 .table-responsive {
   margin-top: 10px; }
 
-#google-maps {
+.google-maps {
   width: 100%;
   height: calc(100vh - 283px); }
 

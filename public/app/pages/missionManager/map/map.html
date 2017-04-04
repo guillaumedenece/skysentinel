@@ -1,9 +1,5 @@
 <div ng-repeat = "mission in missionsPlanned">
-  <div id="google-maps-{{mission._id}}">
-    <div ba-panel ba-panel-title="Mission" class="viewport100"></div>
-  </div>
+    <div ba-panel ba-panel-title="Mission" class="viewport100"><div id="google-maps-{{mission._id}}" class="google-maps"></div></div>
 </div>
 
-<div ng-repeat = "mission in missionsPlanned">
-  <div ng-init="init(mission)"></div>
-</div>
+<div ng-init="missionsPlanned=missionsPlanned"></div>

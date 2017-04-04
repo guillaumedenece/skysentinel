@@ -7,37 +7,31 @@
   /** @ngInject */
   function mapCtrl($timeout, $scope, mapService) {
 
-    $scope.init = function(mission) {
+    function init() {
 
-      $timeout(function(mission){
-        console.log(mission);
+      for(var j=0; j<$scope.missionsPlanned.length; j++){
 
-        var marker = new Array();
+      console.log($scope.missionsPlanned[j].missionDescription);
 
-        console.log('google-maps-' + mission._id);
+      var mapCanvas = document.getElementById('google-maps-' + $scope.missionsPlanned[j]._id);
 
-        var mapCanvas = document.getElementById('google-maps-' + mission._id);
-        var mapOptions = {
-          center: new google.maps.LatLng(mission.missionMapPoints[0].lat, mission.missionMapPoints[0].lng),
-          zoom: 11,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(mapCanvas, mapOptions);
+      console.log('google-maps-' + $scope.missionsPlanned[j]._id);
 
-        for(var i= 0; i < mission.missionMapPoints.length; i++){
-         marker = new google.maps.Marker({
-            position : new google.maps.LatLng(mission.missionMapPoints[i].lat, mission.missionMapPoints[i].lng),
-            map: map
-          })
-          console.log(i + " lat: " + mission.missionMapPoints[i].lat + " long :" +  mission.missionMapPoints[i].lng);
-        }
-      },100);
+      var mapOptions = {
+        center: new google.maps.LatLng($scope.missionsPlanned[j].missionMapPoints[0].lat, $scope.missionsPlanned[j].missionMapPoints[0].lng),
+        zoom: 17,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(mapCanvas, mapOptions);
 
-      // var marker = new google.maps.Marker({
-      //   position : new google.maps.LatLng(44.5403, -78.5463),
-      //   map: map
-      // })
+      for(var i= 0; i < $scope.missionsPlanned[j].missionMapPoints.length; i++){
+       var marker = new google.maps.Marker({
+          position : new google.maps.LatLng($scope.missionsPlanned[j].missionMapPoints[i].lat, $scope.missionsPlanned[j].missionMapPoints[i].lng),
+          map: map
+        })
+      }
     }
+  }
 
     //get missions planned
       mapService.getMissionsPlanned()
@@ -48,9 +42,7 @@
           console.log(error);
         })
 
-    // $timeout(function(){
-    //   initialize();
-    // }, 100);
-  }
-
-})();
+    $timeout(function(){
+      init();
+    }, 100);
+  }})();
