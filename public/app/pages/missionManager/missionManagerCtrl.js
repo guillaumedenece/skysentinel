@@ -11,7 +11,7 @@
     // get missions planned
       missionManagerService.getMissionsPlanned()
         .success(function(missionsPlanned){
-          $scope.missionsPlanned = missionsPlanned;
+          $scope.missionsPlanned = missionsPlanned;          
         })
         .error(function(error){
           console.log(error);

@@ -37,6 +37,12 @@
       mapService.getMissionsPlanned()
         .success(function(missionsPlanned){
           $scope.missionsPlanned = missionsPlanned;
+          for(var i=0; i<missionsPlanned.length;i++){
+            if(!missionsPlanned[i].missionDescription){
+              $scope.missionsPlanned[i].displayDescription = "display:none";
+              console.log("none");
+            }
+          }
         })
         .error(function(error){
           console.log(error);
