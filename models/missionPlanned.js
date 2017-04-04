@@ -27,6 +27,11 @@ var missionPlannedSchema = {
   missionDescription:{
     type: String,
     required : false
+  },
+  missionTitle:{
+    type: String,
+    required: false,
+    default: "mission"
   }
 };
 

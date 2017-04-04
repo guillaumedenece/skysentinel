@@ -19,7 +19,7 @@
 
       var mapOptions = {
         center: new google.maps.LatLng($scope.missionsPlanned[j].missionMapPoints[0].lat, $scope.missionsPlanned[j].missionMapPoints[0].lng),
-        zoom: 17,
+        zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map = new google.maps.Map(mapCanvas, mapOptions);
@@ -44,5 +44,5 @@
 
     $timeout(function(){
       init();
-    }, 100);
+    }, 1000);
   }})();

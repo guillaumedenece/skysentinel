@@ -8,8 +8,8 @@
   function missionManagerMap() {
     return {
       restrict: 'E',
-      controller: 'mapCtrl',
-      templateUrl: 'app/pages/missionManager/map/map.html'
+      controller: 'mapCtrl'
+      // templateUrl: 'app/pages/missionManager/map/map.html'
     };
   }
 })();

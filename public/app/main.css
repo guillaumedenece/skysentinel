@@ -2755,6 +2755,30 @@ button.progress-button.btn.btn-danger {
   width: 80px;
   height: 80px; }
 
+.i-launch {
+  display: inline-block;
+  background: url("../assets/img/launch.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; }
+
+.i-frequency {
+  display: inline-block;
+  background: url("../assets/img/frequency.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; }
+
+.i-description {
+  display: inline-block;
+  background: url("../assets/img/description.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; }
+
 .i-openBox {
   display: inline-block;
   background: url("../assets/img/openBox.svg") no-repeat center;
@@ -3483,6 +3507,15 @@ th {
 .google-maps {
   width: 100%;
   height: calc(100vh - 283px); }
+
+.mission-description {
+  width: 90%;
+  text-align: auto;
+  padding: 5px;
+  border-width: 2px;
+  font-size: 24px;
+  border-radius: 3px;
+}
 
 #leaflet-map {
   height: calc(100vh - 283px); }

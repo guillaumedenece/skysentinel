@@ -6,4 +6,47 @@
 
 <!-- <mission-manager-map ng-init="init('bonsoir')"></mission-manager-map> -->
 
-<mission-manager-map></mission-manager-map>
+<mission-manager-map>
+  <div ng-repeat = "mission in missionsPlanned">
+    <div ba-panel ba-panel-title="{{mission.missionTitle}}" class="viewport100">
+      <div id="google-maps-{{mission._id}}" class="google-maps"></div>
+      <div class="row pie-charts">
+        <div class="pie-chart-item-container">
+          <div ba-panel>
+            <div class="pie-chart-item">
+              <div class="description">
+                <div>Next launch:</div>
+                <div class="description-stats">{{mission.validityDate | date:'H:mm dd/MM/yyyy'}}</div>
+              </div>
+              <i class="chart-icon i-launch"></i>
+            </div>
+          </div>
+        </div>
+        <div class="pie-chart-item-container">
+          <div ba-panel>
+            <div class="pie-chart-item">
+              <div class="description">
+                <div>Frequency:</div>
+                <div class="description-stats">{{mission.frequency}} hours</div>
+              </div>
+              <i class="chart-icon i-frequency"></i>
+            </div>
+          </div>
+        </div>
+        <div class="pie-chart-item-container">
+          <div ba-panel>
+            <div class="pie-chart-item">
+              <div class="description">
+                <div>Mission description:</div>
+                <div class="description-stats">{{mission.missionDescription}}</div>
+              </div>
+              <i class="chart-icon i-description"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-init="missionsPlanned=missionsPlanned"></div>
+</mission-manager-map>

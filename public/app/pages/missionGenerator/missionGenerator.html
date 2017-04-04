@@ -91,9 +91,20 @@
         </div>
 
         <div class="row">
+          <div class="form-group col-sm-12">
+              <label for="missionTitle">Title of the mission: (optional)</label>
+              <input type="text" placeholder="Title of the mission" step="any" class="form-control" id="missionTitle" name="missionTitle">
+          </div>
+            <div class="form-group col-sm-12">
+                <label for="missionDescription">Description of the mission: (optional)</label>
+                <input type="text" placeholder="description of the mission" step="any" class="form-control" id="missionDescription" name="missionDescription">
+            </div>
+        </div>
+
+        <div class="row">
             <div class="form-group col-sm-6">
                 <label for="startDate">Start Date:</label>
-                <input type="date" step="any" class="form-control" id="startDate" name="startDate" value="{{today | date:'yyyy-MM-dd'}}">
+                <input type="datetime-local" step="any" class="form-control" id="startDate" name="startDate" value="{{today | date:'yyyy-MM-ddTH:mm' : '+0100'}}">
             </div>
             <div class="form-group col-sm-6">
                 <label for="frequency">Mission Frequency (hours)</label>
@@ -101,51 +112,9 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group col-sm-12">
-                <label for="missionDescription">Description of the mission: (optional)</label>
-                <input type="text" placeholder="description of the mission" step="any" class="form-control" id="missionDescription" name="missionDescription">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-2">
-                <div class="checkbox col-sm-offset-4">
-                    <label>
-                        <input type="checkbox" id="inputAR" name="inputAR" cheked> Aller / Retour pour chaque passe
-                    </label>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-5">
-                        <div class="thumbnail">
-                            <a href="ressources/AR.png">
-                                <img src="app/pages/missionGenerator/AR.png" alt="Explication aller retour">
-                            </a>
-
-                            <div class="caption">
-                                <h5>Aller / Retour</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="thumbnail">
-                            <a href="app/pages/missionGenerator/AS.png">
-                                <img src="app/pages/missionGenerator/AR.png" alt="Explication aller simple">
-                            </a>
-
-                            <div class="caption">
-                                <h5>Aller simple</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="form-group">
             <div class="col-sm-offset-5 col-sm-3">
-                <button type="submit" class="btn btn-success">Générer les fichiers</button>
+                <button type="submit" class="btn btn-success">Enregistrer la mission</button>
             </div>
         </div>
     </form>
