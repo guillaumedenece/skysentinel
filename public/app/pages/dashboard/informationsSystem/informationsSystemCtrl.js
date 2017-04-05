@@ -42,8 +42,8 @@
     dashboardInformationsSystemService.getLogDrone()
       .success(function(informations){
         $scope.drone = new Object();
-        if(informations[0].landed){
-          if(informations[0].idMission == "none"){
+        if(informations.landed){
+          if(informations.idMission == "none"){
             $scope.drone.state = "Landed";
           }
           else{
@@ -54,14 +54,14 @@
           $scope.drone.state = "In Flight"
         }
 
-        if(informations[0].idMission == "none"){
-          $scope.drone.idMission = "No mission loaded";
+        if(informations.idMission == "none"){
+          $scope.drone.missionTitle = "No mission loaded";
         }
         else{
-          $scope.drone.idMission = informations[0].idMission;
+          $scope.drone.missionTitle = informations.missionTitle;
         }
-        $scope.drone.batteryLevel = informations[0].batteryLevel;
-        $scope.drone.position = informations[0].position;
+        $scope.drone.batteryLevel = informations.batteryLevel;
+        $scope.drone.position = informations.position;
 
         imageManager();
 
