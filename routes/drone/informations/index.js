@@ -44,7 +44,6 @@ router.get('/', function(req, res, next) {
             }
             //if no mission matches the mission in the logDrone
             else{
-              results[0] = new Object(results[0]);
               logDrone.missionTitle = "Title";
               res.send(JSON.stringify(logDrone));
             }

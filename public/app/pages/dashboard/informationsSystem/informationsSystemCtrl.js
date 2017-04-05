@@ -68,6 +68,10 @@
           else{
             $scope.drone.state = "Launching mission";
           }
+          dronePosition = new google.maps.Marker({
+             position : new google.maps.LatLng(0, 0),
+             map: map
+           })
         }
         //if the drone is flying
         else{
@@ -129,10 +133,10 @@
 
       dashboardInformationsSystemFactorySocket.on('logDrone',function(log){
 
-        console.log("log drone received " + log.time);
-
-
         $scope.drone = new Object();
+
+        console.log("live log drone:" + JSON.stringify(log));
+
         if(log.landed){
           if(log.idMission == "none"){
             $scope.drone.state = "Landed";
@@ -147,7 +151,7 @@
           $scope.drone.mapLocationDisplay = "display:block"
           dronePosition.setMap(null);
           dronePosition = new google.maps.Marker({
-             position : new google.maps.LatLng(informations.position.latitude, informations.position.longitude),
+             position : new google.maps.LatLng(log.position.latitude, log.position.longitude),
              map: map
            })
         }
@@ -160,6 +164,7 @@
         }
         $scope.drone.batteryLevel = log.batteryLevel;
         $scope.drone.position = log.position;
+        $scope.drone.missionTitle = log.missionTitle;
 
         imageManager();
 
