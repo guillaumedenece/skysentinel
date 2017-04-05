@@ -1,7 +1,8 @@
 var zmq      = require('zeromq');
 var receiver = zmq.socket('pull');
 var logGroundStation = require('../../models/logGroundStation');
- var io = require('../../socket/io.js');
+var logDrone = require('../../models/logDrone');
+var io = require('../../socket/io.js');
 
 receiver.on("message", function(message){
 
@@ -66,7 +67,38 @@ receiver.on("message", function(message){
 		}
 	}
 
+  if(obj.subject == "drone"){
+    console.log("log drone received");
 
+    var log = new logDrone();
+
+    log.idMission = obj.idMission;
+    log.time = obj.time;
+    if(obj.position){
+      log.position.latitude = obj.position.latitude;
+      log.position.longitude = obj.position.longitude;
+      log.position.altitude = obj.position.altitude;
+    }
+    log.batteryLevel = obj.batteryLevel;
+    log.landed = obj.landed;
+
+    console.log("data received:" + log);
+
+    //saves in the database
+    log.save(function(err){
+      if(err){
+        console.log(err); //res.send("error")
+      }
+      else {
+        console.log("log drone saved in the database");
+      }
+    })
+
+		//sends the information in real time to the client
+		io.emit('logDrone', obj);
+		console.log("message sent to user\n");
+
+  }
 
 
 });

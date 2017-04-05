@@ -5,6 +5,8 @@ var informations = require('./informations');
 
 app.use('/actions', actions);
 
+app.use('/informations', informations);
+
 // app.use('/informations', informations);
 
 module.exports = app;

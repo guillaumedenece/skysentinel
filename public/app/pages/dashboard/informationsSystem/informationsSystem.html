@@ -31,6 +31,60 @@
 </div>
 </div>
 
+<div ba-panel ba-panel-title="Drone State">
+<div class="row pie-charts">
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>State</div>
+          <div class="description-stats">{{drone.state}}</div>
+        </div>
+        <i class="chart-icon i-{{drone.stateImage}}"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Mission Identifier</div>
+          <div class="description-stats">{{drone.idMission}}</div>
+        </div>
+        <!-- <i class="chart-icon i-elevator"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pie-charts">
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Battery Level</div>
+          <div class="description-stats">{{drone.batteryLevel | batteryPurcentageFilter}}</div>
+        </div>
+        <i class="chart-icon i-{{drone.batteryImage}}"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="pie-chart-item-container">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="description">
+          <div>Position</div>
+          <div class="description-stats">Lat: {{drone.position.latitude}} | Long: {{drone.position.longitude}} | Alti: {{drone.position.altitude}}</div>
+        </div>
+        <!-- <i class="chart-icon i-elevator"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 <div ba-panel ba-panel-title="Batteries Informations">
   <div class="row pie-charts">
 

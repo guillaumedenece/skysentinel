@@ -9,5 +9,9 @@
     this.getLogGroundStation=function(){
       return $http.get('/groundStation/informations');
     }
+
+    this.getLogDrone=function(){
+      return $http.get('/drone/informations');
+    }
   }
 })();

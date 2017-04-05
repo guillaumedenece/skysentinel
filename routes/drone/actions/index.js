@@ -12,6 +12,7 @@ router.get('/mission/:idMission', function(req, res, next) {
   //creating the command to send to the GS
   var command = new Object();
   command.idMission = idMission;
+  command.missionData = "";
   command.commandTarget = "drone";
   command.commandType = "mission";
   command.timeLimit = Date.now() + 15000;
