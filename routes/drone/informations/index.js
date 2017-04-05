@@ -52,12 +52,12 @@ router.get('/', function(req, res, next) {
         })
       }
       else{
-        res.send(results);
+        res.send(results[0]);
       }
     }
     else{
       console.log("no log drone found");
-      res.send(results)
+      res.send(results[0])
     }
   })
 });
