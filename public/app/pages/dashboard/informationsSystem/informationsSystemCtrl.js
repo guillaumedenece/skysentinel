@@ -8,12 +8,20 @@
   /** @ngInject */
   function informationsSystemCtrl($http, $scope, dashboardInformationsSystemFactorySocket, dashboardInformationsSystemService){
 
+    var map;
+    var dronePosition;
+
     dashboardInformationsSystemService.getLogGroundStation()
       .success(function(informations){
         $scope.doorState = informations[0].doorState;
         $scope.elevatorState = informations[0].elevatorState;
         $scope.weatherInfos =new Object();
-        $scope.weatherInfos.rain = informations[0].weatherInfos.rain
+        if(informations[0].weatherInfos.rain){
+          $scope.weatherInfos.rain = "Yes"
+        }
+        else{
+          $scope.weatherInfos.rain = "No"
+        }
         $scope.weatherInfos.wind = informations[0].weatherInfos.wind
         $scope.weatherInfos.humidity = informations[0].weatherInfos.humidity
         $scope.weatherInfos.temperature = informations[0].weatherInfos.temperature
@@ -41,7 +49,18 @@
 
     dashboardInformationsSystemService.getLogDrone()
       .success(function(informations){
+
         $scope.drone = new Object();
+
+        var mapCanvas = document.getElementById('google-maps-drone-location');
+        var mapOptions = {
+          center: new google.maps.LatLng(informations.position.latitude,informations.position.longitude),
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(mapCanvas, mapOptions);
+        $scope.drone.mapLocationDisplay = "display:none"
+
         if(informations.landed){
           if(informations.idMission == "none"){
             $scope.drone.state = "Landed";
@@ -50,8 +69,14 @@
             $scope.drone.state = "Launching mission";
           }
         }
+        //if the drone is flying
         else{
           $scope.drone.state = "In Flight"
+          $scope.drone.mapLocationDisplay = "display:block"
+          dronePosition = new google.maps.Marker({
+             position : new google.maps.LatLng(informations.position.latitude, informations.position.longitude),
+             map: map
+           })
         }
 
         if(informations.idMission == "none"){
@@ -74,7 +99,13 @@
         $scope.doorState = log.doorState;
         $scope.elevatorState = log.elevatorState;
         $scope.weatherInfos =new Object();
-        $scope.weatherInfos.rain = log.weatherInfos.rain
+        if(log.weatherInfos.rain){
+          $scope.weatherInfos.rain = "Yes"
+        }
+        else{
+          $scope.weatherInfos.rain = "No";
+        }
+
         $scope.weatherInfos.wind = log.weatherInfos.wind
         $scope.weatherInfos.humidity = log.weatherInfos.humidity
         $scope.weatherInfos.temperature = log.weatherInfos.temperature
@@ -109,9 +140,16 @@
           else{
             $scope.drone.state = "Launching mission";
           }
+          $scope.drone.mapLocationDisplay = "display:none"
         }
         else{
           $scope.drone.state = "In Flight"
+          $scope.drone.mapLocationDisplay = "display:block"
+          dronePosition.setMap(null);
+          dronePosition = new google.maps.Marker({
+             position : new google.maps.LatLng(informations.position.latitude, informations.position.longitude),
+             map: map
+           })
         }
 
         if(log.idMission == "none"){
@@ -207,5 +245,20 @@
           $scope.drone.batteryImage = "batteryFull"
         }
       }
+
+      // function initMapDroneLocation(){
+      //   var mapCanvas = document.getElementById('google-maps-drone-location');
+      //   var mapOptions = {
+      //     center: new google.maps.LatLng(informations.position.latitude,informations.position.longitude),
+      //     zoom: 16,
+      //     mapTypeId: google.maps.MapTypeId.ROADMAP
+      //   };
+      //   var map = new google.maps.Map(mapCanvas, mapOptions);
+      //   $scope.drone.mapLocationDisplay = "display:none"
+      // }
+      //
+      // $timeout(function(){
+      //   initMapDroneLocation();
+      // }, 1000);
   }
 } )();

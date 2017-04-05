@@ -73,16 +73,24 @@
 
   <div class="pie-chart-item-container">
     <div ba-panel>
+      <!-- <div ba-panel ba-panel-title="Google Maps" class="viewport100">
+        <div class="google-maps" id="google-maps-drone-location"></div>
+      </div> -->
       <div class="pie-chart-item">
         <div class="description">
-          <div>Position</div>
-          <div class="description-stats">Lat: {{drone.position.latitude}} | Long: {{drone.position.longitude}} | Alti: {{drone.position.altitude}}</div>
+          <div>Altitude</div>
+          <div class="description-stats">{{drone.position.altitude}} meters</div>
         </div>
-        <!-- <i class="chart-icon i-elevator"></i> -->
+        <i class="chart-icon i-altitude"></i>
       </div>
     </div>
   </div>
 </div>
+
+<div ba-panel ba-panel-title="Drone Location" class="viewport100" style="{{drone.mapLocationDisplay}}">
+  <div class="google-maps" id="google-maps-drone-location"></div>
+</div>
+
 </div>
 
 <div ba-panel ba-panel-title="Batteries Informations">

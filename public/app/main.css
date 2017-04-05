@@ -2781,7 +2781,7 @@ button.progress-button.btn.btn-danger {
 
 .i-drone-fly {
   display: inline-block;
-  background: url("../assets/img/droneeFly.svg") no-repeat center;
+  background: url("../assets/img/droneFly.svg") no-repeat center;
   background-size: contain;
   vertical-align: middle;
   width: 80px;
@@ -2846,6 +2846,14 @@ button.progress-button.btn.btn-danger {
 .i-temperature {
   display: inline-block;
   background: url("../assets/img/temperature.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; }
+
+.i-altitude {
+  display: inline-block;
+  background: url("../assets/img/altitude.svg") no-repeat center;
   background-size: contain;
   vertical-align: middle;
   width: 80px;

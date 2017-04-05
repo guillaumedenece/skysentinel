@@ -104,4 +104,5 @@ receiver.on("message", function(message){
 });
 
 receiver.connect('tcp://192.168.31.152:5556');
+// receiver.connect('tcp://127.0.0.1:5556');
 console.log("Connecting to server with port 5556");
