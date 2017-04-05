@@ -63,40 +63,7 @@
         $scope.drone.batteryLevel = informations[0].batteryLevel;
         $scope.drone.position = informations[0].position;
 
-        $scope.stateDroneImage = "launch"
-
-        switch ($scope.drone.state) {
-          case "Launching mission":
-              $scope.drone.stateImage = 'launch-dashboard'
-            break;
-          case "In Flight":
-              $scope.drone.stateImage = ''
-            break;
-          case "Landed":
-              $scope.drone.stateImage = ''
-            break;
-          default:
-            $scope.drone.stateImage = ''
-        }
-
-        if($scope.drone.batteryLevel < 0){
-          $scope.drone.batteryImage = "noBattery"
-        }
-        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 1)){
-          $scope.drone.batteryImage = "batteryLow"
-        }
-        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 2)){
-          $scope.drone.batteryImage = "batteryMedium"
-        }
-        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 3)){
-          $scope.drone.batteryImage = "batteryAverage"
-        }
-        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 4)){
-          $scope.drone.batteryImage = "batteryHigh"
-        }
-        else {
-          $scope.drone.batteryImage = "batteryFull"
-        }
+        imageManager();
 
       })
       .error(function(error){
@@ -156,40 +123,7 @@
         $scope.drone.batteryLevel = log.batteryLevel;
         $scope.drone.position = log.position;
 
-        $scope.stateDroneImage = "launch"
-
-        switch ($scope.drone.state) {
-          case "Launching mission":
-              $scope.drone.stateImage = 'launch-dashboard'
-            break;
-          case "In Flight":
-              $scope.drone.stateImage = ''
-            break;
-          case "Landed":
-              $scope.drone.stateImage = ''
-            break;
-          default:
-            $scope.drone.stateImage = ''
-        }
-
-        if($scope.drone.batteryLevel < 0){
-          $scope.drone.batteryImage = "noBattery"
-        }
-        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 1)){
-          $scope.drone.batteryImage = "batteryLow"
-        }
-        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 2)){
-          $scope.drone.batteryImage = "batteryMedium"
-        }
-        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 3)){
-          $scope.drone.batteryImage = "batteryAverage"
-        }
-        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 4)){
-          $scope.drone.batteryImage = "batteryHigh"
-        }
-        else {
-          $scope.drone.batteryImage = "batteryFull"
-        }
+        imageManager();
 
       })
 
@@ -209,6 +143,10 @@
 
           case "opening":
             $scope.doorImage = 'openingBox'
+            break;
+
+          case "closing":
+            $scope.doorImage = 'closingBox'
             break;
 
           default:
@@ -236,6 +174,38 @@
           }
         }
 
+        switch ($scope.drone.state) {
+          case "Launching mission":
+              $scope.drone.stateImage = 'drone-launch'
+            break;
+          case "In Flight":
+              $scope.drone.stateImage = 'drone-fly'
+            break;
+          case "Landed":
+              $scope.drone.stateImage = 'drone-land'
+            break;
+          default:
+            $scope.drone.stateImage = ''
+        }
+
+        if($scope.drone.batteryLevel < 0){
+          $scope.drone.batteryImage = "noBattery"
+        }
+        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 1)){
+          $scope.drone.batteryImage = "batteryLow"
+        }
+        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 2)){
+          $scope.drone.batteryImage = "batteryMedium"
+        }
+        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 3)){
+          $scope.drone.batteryImage = "batteryAverage"
+        }
+        else if($scope.drone.batteryLevel < (9.9 + 0.54 * 4)){
+          $scope.drone.batteryImage = "batteryHigh"
+        }
+        else {
+          $scope.drone.batteryImage = "batteryFull"
+        }
       }
   }
 } )();

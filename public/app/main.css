@@ -2763,9 +2763,25 @@ button.progress-button.btn.btn-danger {
   width: 80px;
   height: 80px; }
 
-.i-launch-dashboard {
+.i-drone-launch {
   display: inline-block;
-  background: url("../assets/img/launchDashboard.svg") no-repeat center;
+  background: url("../assets/img/droneLaunch.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; }
+
+.i-drone-land {
+  display: inline-block;
+  background: url("../assets/img/droneLand.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; }
+
+.i-drone-fly {
+  display: inline-block;
+  background: url("../assets/img/droneeFly.svg") no-repeat center;
   background-size: contain;
   vertical-align: middle;
   width: 80px;
@@ -2795,13 +2811,21 @@ button.progress-button.btn.btn-danger {
   width: 80px;
   height: 80px; }
 
-  .i-openingBox {
-    display: inline-block;
-    background: url("../assets/img/openingBox.svg") no-repeat center;
-    background-size: contain;
-    vertical-align: middle;
-    width: 80px;
-    height: 80px; }
+.i-openingBox {
+  display: inline-block;
+  background: url("../assets/img/openingBox.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; }
+
+.i-closingBox {
+  display: inline-block;
+  background: url("../assets/img/closingBox.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; }
 
 .i-closeBox {
   display: inline-block;
