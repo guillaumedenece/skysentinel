@@ -10,6 +10,7 @@
 
     var map;
     var dronePosition;
+    var droneIcon = new google.maps.MarkerImage("app/pages/dashboard/informationsSystem/drone.png", null, null, null, new google.maps.Size(50,50));
 
     dashboardInformationsSystemService.getLogGroundStation()
       .success(function(informations){
@@ -70,7 +71,8 @@
           }
           dronePosition = new google.maps.Marker({
              position : new google.maps.LatLng(0, 0),
-             map: map
+             map: map,
+             icon: droneIcon
            })
         }
         //if the drone is flying
@@ -79,7 +81,8 @@
           $scope.drone.mapLocationDisplay = "display:block"
           dronePosition = new google.maps.Marker({
              position : new google.maps.LatLng(informations.position.latitude, informations.position.longitude),
-             map: map
+             map: map,
+             icon: droneIcon
            })
         }
 
@@ -152,7 +155,8 @@
           dronePosition.setMap(null);
           dronePosition = new google.maps.Marker({
              position : new google.maps.LatLng(log.position.latitude, log.position.longitude),
-             map: map
+             map: map,
+             icon: droneIcon
            })
         }
 
