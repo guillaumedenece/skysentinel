@@ -109,7 +109,7 @@ receiver.on("message", function(message){
 			liveDroneInfo.position.altitude = log.position.altitude;
 
 			//if a mission matching the mission in the logDrone is found
-			if(mission[0]){
+			if(mission){
 				//if that mission has a title
 				if(mission[0].missionTitle){
 					liveDroneInfo.missionTitle = mission[0].missionTitle;
