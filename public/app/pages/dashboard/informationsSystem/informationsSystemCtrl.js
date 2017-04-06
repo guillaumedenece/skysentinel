@@ -164,7 +164,7 @@
           $scope.drone.idMission = "No mission loaded";
         }
         else{
-          $scope.drone.idMission = log.idMission;
+          $scope.drone.missionTitle = log.missionTitle;
         }
         $scope.drone.batteryLevel = log.batteryLevel;
         $scope.drone.position = log.position;

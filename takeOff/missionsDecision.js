@@ -34,7 +34,7 @@ function takeOffDecision(){
 				mission.commandTarget = "drone";
 				mission.commandType = "mission";
 				var objectId = 	new ObjectID();
-				var idMission = objectId.toHexString();
+				var idMission = mp[0]._id;
 				mission.missionData = mp[0].missionData;
 				mission.timeLimit = Date.now()+10*60*1000;
 
