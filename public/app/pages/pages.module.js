@@ -11,7 +11,8 @@
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.missionGenerator',
     'BlurAdmin.pages.missionManager',
-    'BlurAdmin.pages.missionHistory'
+    'BlurAdmin.pages.missionHistory',
+    'BlurAdmin.pages.logs'
     // 'BlurAdmin.pages.ui',
     // 'BlurAdmin.pages.components',
     // 'BlurAdmin.pages.form',
@@ -49,16 +50,16 @@
     // baSidebarServiceProvider.addStaticItem({
     //   title: 'Menu Level 1',
     //   icon: 'ion-ios-more',
+    // subMenu: [{
+    //   title: 'Menu Level 1.1',
+    //   disabled: true
+    // }, {
+    //   title: 'Menu Level 1.2',
     //   subMenu: [{
-    //     title: 'Menu Level 1.1',
+    //     title: 'Menu Level 1.2.1',
     //     disabled: true
-    //   }, {
-    //     title: 'Menu Level 1.2',
-    //     subMenu: [{
-    //       title: 'Menu Level 1.2.1',
-    //       disabled: true
-    //     }]
     //   }]
+    // }]
     // });
   }
 
