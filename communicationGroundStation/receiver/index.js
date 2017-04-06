@@ -108,20 +108,26 @@ receiver.on("message", function(message){
 			liveDroneInfo.position.longitude = log.position.longitude;
 			liveDroneInfo.position.altitude = log.position.altitude;
 
-			//if a mission matching the mission in the logDrone is found
-			if(mission){
-				//if that mission has a title
-				if(mission[0].missionTitle){
-					liveDroneInfo.missionTitle = mission[0].missionTitle;
+
+			if(log.idMission != "none"){
+				//if a mission matching the mission in the logDrone is found
+				if(mission){
+					//if that mission has a title
+					if(mission[0].missionTitle){
+						liveDroneInfo.missionTitle = mission[0].missionTitle;
+					}
+					//if that mission has no title
+					else{
+						liveDroneInfo.missionTitle = "Title";
+					}
 				}
-				//if that mission has no title
+				//if no mission matches the mission in the logDrone
 				else{
 					liveDroneInfo.missionTitle = "Title";
 				}
 			}
-			//if no mission matches the mission in the logDrone
 			else{
-				liveDroneInfo.missionTitle = "Title";
+				liveDroneInfo.missionTitle = "No mission loaded";
 			}
 
 			//sends the information in real time to the client
