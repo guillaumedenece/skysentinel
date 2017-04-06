@@ -34,7 +34,7 @@ function takeOffDecision(){
 				mission.commandTarget = "drone";
 				mission.commandType = "mission";
 				mission.idMission = idMissionPlanned;
-				mission.missionData = mp[0].missionData;
+				mission.missionData = missionData;
 				mission.timeLimit = Date.now()+10*60*1000;
 
 				var jsonString = JSON.stringify(mission);
@@ -44,7 +44,7 @@ function takeOffDecision(){
 
 				var addTO = new logTakeOff();
 
-				addTO.idMission = idMission;
+				addTO.idMission = idMissionPlanned;
 				addTO.time = new Date();
 				addTO.weatherCond = algoWeather(GSLog);
 				addTO.launched = true;
